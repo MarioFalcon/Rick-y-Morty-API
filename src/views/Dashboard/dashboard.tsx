@@ -1,6 +1,8 @@
 import {FC, memo} from 'react'
 
 import Header from '../../components/Header/header'
+import Footer from '../../components/Footer/footer'
+import Card from '../../components/Card/card'
 import VideoBackground from '../../components/VideoBackground/videoBackground'
 import {
   DashboardContainer,
@@ -19,10 +21,10 @@ const Dashboard: FC = () => {
 
       <DashboardContent>
         <DashboardCards>
-          
+        <Card/>
         </DashboardCards>
       </DashboardContent>
-
+      <Footer />
       </DashboardContainer>
   )
 
