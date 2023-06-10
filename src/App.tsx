@@ -1,14 +1,11 @@
-
-
-
-
+import Dashboard from "./views/Dashboard/dashboard";
 
 function App() {
   return (
-    <div className="App">
-Holaa
+    <div>
+      <Dashboard/>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
