@@ -1,11 +1,11 @@
-import Dashboard from "./views/Dashboard/dashboard";
+import Router from './containers/Router';
 
 function App() {
   return (
-    <div>
-      <Dashboard/>
+    <div className="App">
+      <Router />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
