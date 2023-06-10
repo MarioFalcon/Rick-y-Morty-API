@@ -19,10 +19,6 @@ const Card: FC = () => {
           <Button>Remove</Button>
         </Header>
 
-        <Header>
-          <Button>Details</Button>
-        </Header>
-
         <Title> TITULO </Title>
         <ImageContainer>
           <Image />
