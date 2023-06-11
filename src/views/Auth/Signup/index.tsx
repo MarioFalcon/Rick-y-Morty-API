@@ -1,80 +1,92 @@
 import { FC, memo } from 'react'
 import {
+  Button,
   Container,
   Form,
   FormContent,
+  Info,
   Input,
   InputController,
   InputError,
   Label,
+  Link,
+  Title,
 } from './styles'
-
 import { Formik } from 'formik'
-import { initialValues, validationSignupSchema } from './constant'
+import { InitialValues, ValidationSchema } from './constant'
 import useLogic from './logic'
-import { Link } from 'react-router-dom'
-import Button from '../../../components/Button/button'
-import Header from '../../../components/Header/header'
+import VideoBackground from '../../../components/VideoBackground/videoBackground'
+
 
 const Signup: FC = () => {
   const { handleOnSubmit } = useLogic()
 
   return (
-    <>
-      <Header />
-      <Container>
-        <Formik
-          initialValues={initialValues}
-          validationSchema={validationSignupSchema}
-          onSubmit={handleOnSubmit}
-        >
-          {({ errors, handleSubmit, handleChange, values }) => (
-            <Form onSubmit={handleSubmit}>
-              <FormContent>
-                <InputController>
-                  <Label>Email</Label>
-                  <Input type="email" name="email" onChange={handleChange} />
-                  {errors?.email && <InputError>{errors.email}</InputError>}
-                </InputController>
-                <InputController>
-                  <Label>Password</Label>
-                  <Input
-                    type="password"
-                    name="password"
-                    onChange={handleChange}
-                  />
-                  {errors?.password && (
-                    <InputError>{errors.password}</InputError>
-                  )}
-                </InputController>
-                <InputController>
-                  <Label>Name</Label>
-                  <Input type="text" name="name" onChange={handleChange} />
-                  {errors?.name && <InputError>{errors.name}</InputError>}
-                </InputController>
-                <InputController>
-                  <Label>Surname</Label>
-                  <Input type="text" name="surname" onChange={handleChange} />
-                  {errors?.surname && <InputError>{errors.surname}</InputError>}
-                </InputController>
-                <InputController>
-                  <Label>Age</Label>
-                  <Input type="number" name="age" onChange={handleChange} />
-                  {errors?.age && <InputError>{errors.age}</InputError>}
-                </InputController>
-                <InputController>
-                  <Label>Country</Label>
-                  <Input type="text" name="country" onChange={handleChange} />
-                  {errors?.country && <InputError>{errors.country}</InputError>}
-                </InputController>
-                <Button type="submit">Register</Button>
-                <Link to="/login">Log in</Link>
-              </FormContent>
-            </Form>
-          )}
-        </Formik>
-      </Container>
-    </>
+    <Container>
+      <VideoBackground videoSrc="/blue.mp4" />
+      <Formik
+        initialValues={InitialValues}
+        validationSchema={ValidationSchema}
+        onSubmit={handleOnSubmit}
+      >
+        {({ errors, handleSubmit, handleChange, values }) => (
+          <Form onSubmit={handleSubmit}>
+            <FormContent>
+              <Title>Create an account</Title>
+              <InputController>
+                <Label>Name</Label>
+                <Input
+                  type="text"
+                  name="displayName"
+                  onChange={handleChange}
+                  value={values.displayName}
+                />
+                {errors?.displayName && (
+                  <InputError>{errors.displayName}</InputError>
+                )}
+              </InputController>
+              <InputController>
+                <Label>Phone number</Label>
+                <Input
+                  maxLength={15}
+                  type="tel"
+                  name="phoneNumber"
+                  onChange={handleChange}
+                  value={values.phoneNumber}
+                />
+                {errors?.phoneNumber && (
+                  <InputError>{errors.phoneNumber}</InputError>
+                )}
+              </InputController>
+              <InputController>
+                <Label>Email</Label>
+                <Input
+                  type="email"
+                  name="email"
+                  onChange={handleChange}
+                  value={values.email}
+                />
+                {errors?.email && <InputError>{errors.email}</InputError>}
+              </InputController>
+              <InputController>
+                <Label>Password</Label>
+                <Input
+                  type="password"
+                  name="password"
+                  onChange={handleChange}
+                  value={values.password}
+                />
+                {errors?.password && <InputError>{errors.password}</InputError>}
+              </InputController>
+              <Button type="submit">Register</Button>
+              <Info>
+                Already have an account? <Link to="/login">Log in now</Link>
+              </Info>
+            </FormContent>
+          </Form>
+        )}
+      </Formik>
+    </Container>
   )
 }
 

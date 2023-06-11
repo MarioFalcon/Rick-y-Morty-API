@@ -3,57 +3,67 @@ import {
   Container,
   Form,
   FormContent,
-  InputController,
-  Label,
+  Info,
   Input,
+  InputController,
   InputError,
+  Label,
+  Title,
 } from './styles'
 
 import VideoBackground from '../../../components/VideoBackground/videoBackground'
 import { Formik } from 'formik'
-import { initialValues, validationLoginSchema } from './constant'
 import { Link } from 'react-router-dom'
 import useLogic from './logic'
 import Button from '../../../components/Button/button'
-
+import { Props } from './types'
+import { InitialValues, ValidationSchema } from './constant'
 const Login: FC = () => {
   const { handleOnSubmit } = useLogic()
 
   return (
     <>
-      <Container>
-        <Formik
-          initialValues={initialValues}
-          validationSchema={validationLoginSchema}
-          onSubmit={handleOnSubmit}
-        >
-          {({ errors, handleSubmit, handleChange, values }) => (
-            <Form onSubmit={handleSubmit}>
-              <FormContent>
-                <VideoBackground videoSrc="/blue.mp4" />
-                <InputController>
-                  <Label>Email</Label>
-                  <Input type="email" name="email" onChange={handleChange} />
-                  {errors?.email && <InputError>{errors.email}</InputError>}
-                </InputController>
-                <InputController>
-                  <Label>Password</Label>
-                  <Input
-                    type="password"
-                    name="password"
-                    onChange={handleChange}
-                  />
-                  {errors?.password && (
-                    <InputError>{errors.password}</InputError>
-                  )}
-                </InputController>
-                <Button type="submit">Login</Button>
-                <Link to="/signup">Create an account</Link>
-              </FormContent>
-            </Form>
-          )}
-        </Formik>
-      </Container>
+    <Container>
+      <VideoBackground videoSrc="/blue.mp4" />
+      <Formik
+        initialValues={InitialValues}
+        validationSchema={ValidationSchema}
+        onSubmit={handleOnSubmit}
+      >
+        {({ errors, handleSubmit, handleChange, values }) => (
+          <Form onSubmit={handleSubmit}>
+            <FormContent>
+              <Title>Join Rick and Morty</Title>
+              <InputController>
+                <Label>Email</Label>
+                <Input
+                  type="email"
+                  name="email"
+                  onChange={handleChange}
+                  value={values.email}
+                />
+                {errors?.email && <InputError>{errors.email}</InputError>}
+              </InputController>
+              <InputController>
+                <Label>Password</Label>
+                <Input
+                  type="password"
+                  name="password"
+                  onChange={handleChange}
+                  value={values.password}
+                />
+                {errors?.password && <InputError>{errors.password}</InputError>}
+              </InputController>
+              <Button type="submit">Log in</Button>
+              <Info>
+                Don't have an account yet?{' '}
+                <Link to="/signup">Sign up here </Link>
+              </Info>
+            </FormContent>
+          </Form>
+        )}
+      </Formik>
+    </Container>
     </>
   )
 }
