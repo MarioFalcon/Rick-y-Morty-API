@@ -1,16 +1,12 @@
-import * as Yup from 'yup'
-
-export const initialValues = {
+import { object, string } from 'yup'
+export const InitialValues = {
   email: '',
   password: '',
 }
 
-export const validationLoginSchema = Yup.object().shape({
-  email: Yup.string()
-    .email('Invalid email')
-    .required('Please enter a valid email address'),
-  password: Yup.string()
-    .min(4, 'too short characters')
-    .max(20, 'too long characters')
-    .required('required'),
+export const ValidationSchema = object({
+  email: string()
+    .email('not a valid email')
+    .required('email is a required field'),
+  password: string().required('password is a required field'),
 })
