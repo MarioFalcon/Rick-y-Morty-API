@@ -17,6 +17,7 @@ const Dashboard: FC = () => {
 
     <DashboardContainer>
     <Header/>
+    
       <VideoBackground videoSrc="/blue.mp4" />
 
       <DashboardContent>

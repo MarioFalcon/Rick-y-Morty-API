@@ -7,22 +7,20 @@ import {
   Label,
   Input,
   InputError,
-} from './styles';
+} from './styles'
 
-
+import VideoBackground from '../../../components/VideoBackground/videoBackground'
 import { Formik } from 'formik'
 import { initialValues, validationLoginSchema } from './constant'
 import { Link } from 'react-router-dom'
 import useLogic from './logic'
-import Button from '../../../components/Button/button';
-
+import Button from '../../../components/Button/button'
 
 const Login: FC = () => {
   const { handleOnSubmit } = useLogic()
 
   return (
     <>
-
       <Container>
         <Formik
           initialValues={initialValues}
@@ -32,6 +30,7 @@ const Login: FC = () => {
           {({ errors, handleSubmit, handleChange, values }) => (
             <Form onSubmit={handleSubmit}>
               <FormContent>
+                <VideoBackground videoSrc="/blue.mp4" />
                 <InputController>
                   <Label>Email</Label>
                   <Input type="email" name="email" onChange={handleChange} />
@@ -60,4 +59,3 @@ const Login: FC = () => {
 }
 
 export default memo(Login)
-
