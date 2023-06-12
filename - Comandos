@@ -1,0 +1,85 @@
+# CREAR NUEVA RAMA Y SUBIRLA
+
+git branch nombre_rama # Crear una rama localmente     
+git checkout -b nombre_rama # Crear una nueva rama y cambiar a ella al mismo tiempo 
+git add . # Añadir los archivos modificados al área 
+git commit -m "título del commit"  # Confirmar los cambios y crear un mensaje de confirmación descriptivo   
+git push origin "nombre de mi actual rama"  # Enviar los cambios de una rama local al repositorio remoto 
+Iniciar el "Pull Request" desde el enlace o Github
+Merge fusionar al MASTER! 
+
+# COMANDOS COMUNES 
+
+git branch # mostrar ramas locales y resaltar la rama actual
+git branch -r  #  Mostrar todas las ramas remotas
+git checkout nombre_rama  # Cambiar a una rama específica
+git stash # Te permite guardar tus modificaciones y aplicarlos más tarde.
+git pull origin nombre_rama_master  # Descargar los últimos cambios del repositorio remoto a MAIN
+
+# ELIMINAR RAMAS
+
+git branch -d nombre_rama   # Eliminar una rama local
+git push origin --delete nombre_rama_remota   # Eliminar una rama remota
+
+git fetch   #  Descargar (fetch) las ramas remotas actualizadas:
+git push origin nombre_rama_local:nombre_rama_remota   # Crear una nueva rama remota basada en una rama local
+git merge nombre_rama_remota   # Fusionar una rama remota en tu rama actual
+
+
+# DESCARGAR_NUEVO_REPOSITORIO_A_LOCAL_Y_ABRIR
+
+copiar la url.
+Abrimos la carpeta en la terminal  # Git Bash Here
+git clone <url>                    # Clonar repositorio git Remoto (origin) de Github a local
+cd <nombre-del-repositorio>        # ingresamos a la carpeta.
+code .                             #Abrimos nuestro repositorio en Visual Studio Code y TRABAJAMOS.
+
+#*SUBIR_A_GIT
+
+git status                          # Visualizar qué ficheros han sufrido cambios y aún no están commiteados.
+git add -A | git add <archivo>     # para agregar todos los ficheros al staging area.
+git commit -m "título del commit"   # para agregar un mensaje al commit que nos permita identificar los cambios realizados
+git push origin main               # Envía los nuevos cambios que tenemos en local al repositorio remoto (GitHub)
+
+# DESCARGAR_A_LOCAL_LOS_NUEVOS_CAMBIOS_DE_UN_REPOSITORIO_REMOTO
+
+git pull                            # Para descargar los cambios que estén en remoto y no tenga en mi ordenador
+code .                              # Abrir visual code
+
+# OTROS_COMANDOS
+
+git config --global --add safe.directory '*'   # MAIN Silencia todas las advertencias relacionadas con safe.directoryel sistema de git.
+
+#CREA UN NUEVO REPOSITORIO EN LINEA DE COMANDO
+
+1º git init|          El comando git init crea un nuevo repositorio de Git en tu PC.
+2º git add .|         selecciona los archivos a la carpeta
+3º git commit -m "mensaje"|         Carga todos los archivos a la carpeta de tu PC.
+      git config --global user.email maok.seven@gmail.com
+      git config --global user.name MarioFalcon
+4º git branch -M main |           Sube los archivos a la rama principal
+5º git remote add origin https://github.com |   Sube los archivos al REPOSITORIO
+6º git push -u origin main|  Confirmar la sincronizacion Local - Remoto
+
+# COMANDOS BASICOS DEL SISTEMA
+
+pwd    Devuelve la ruta absoluta al directorio abierto en la terminal
+mkdir carpeta1    Crear una nueva carpeta con nombre carpeta1
+start .    Abre el explorador de carpetas en el directorio abierto en terminal
+cd carpeta1    Entra en la carpeta con nombre carpeta1
+cd ..    Sale de la carpeta actual
+ls    Lista ficheros y directorios que contiene el directorio actual
+
+
+# OTROS COMANDOS 
+
+git status                        Ver estado actual del repositorio
+git log ver el historial de commits del repositorio
+…o inserte un repositorio existente desde la línea de comando 
+git remoto agregar origen https://github.com/MarioFalcon/Carta.git |
+git rama -M principal |
+git push -u origen principal |
+Atajos de teclado VSCODE
+Shift + Ctrl + P Abre paleta de comandos de vscode
+
+

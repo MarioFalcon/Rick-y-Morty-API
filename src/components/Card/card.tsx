@@ -1,4 +1,4 @@
-import { FC, memo, useCallback, useEffect, useState } from "react";
+import { FC, memo, useEffect, useState } from "react";
 import { fetchCharacters, Character } from "../../services/rym/rym";
 
 import {

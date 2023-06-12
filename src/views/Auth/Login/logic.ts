@@ -8,12 +8,13 @@ const useLogic = () => {
   const handleOnSubmit = useCallback(
     async (values: { email: string; password: string }) => {
       try {
-        await login(values)
-        console.log('Login successful')
-
-        navigate('/dashboard')
-      } catch (error) {
-        console.log('Login error:', error)
+        const user = await login(values.email, values.password)
+        console.log(user)
+        if (user) {
+          navigate('/dashboard')
+        }
+      } catch (e) {
+        console.log(e)
       }
     },
     [navigate]

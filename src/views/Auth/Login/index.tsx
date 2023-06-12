@@ -16,7 +16,6 @@ import { Formik } from 'formik'
 import { Link } from 'react-router-dom'
 import useLogic from './logic'
 import Button from '../../../components/Button/button'
-import { Props } from './types'
 import { InitialValues, ValidationSchema } from './constant'
 const Login: FC = () => {
   const { handleOnSubmit } = useLogic()
