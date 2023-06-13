@@ -17,9 +17,7 @@ const Dashboard: FC = () => {
 
     <DashboardContainer>
     <Header/>
-    
       <VideoBackground videoSrc="/blue.mp4" />
-
       <DashboardContent>
         <DashboardCards>
         <Card/>
@@ -30,11 +28,5 @@ const Dashboard: FC = () => {
   )
 
 }
-
-
-
-
-
-
 
 export default memo(Dashboard)

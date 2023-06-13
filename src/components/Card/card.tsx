@@ -1,5 +1,5 @@
-import { FC, memo, useEffect, useState } from "react";
-import { fetchCharacters, Character } from "../../services/rym/rym";
+import  { FC, memo, useState, useEffect } from "react";
+
 
 import {
   Button,
@@ -10,47 +10,36 @@ import {
   Image,
   Title,
 } from "./cardstyles";
+import { Category } from "../../models/Category";
+import { RYMChapters } from "../../services/rym/rym";
 
 
 const Card: FC = () => {
-  const [characters, setCharacters] = useState<Character[]>([]);
+  const [chapters, setChapters] = useState<Category[]>([]);
 
   useEffect(() => {
-    const fetchCharactersData = async () => {
-      const charactersData = await fetchCharacters();
-      setCharacters(charactersData);
+    const fetchData = async () => {
+      const chaptersData = await RYMChapters();
+      setChapters(chaptersData);
     };
 
-    fetchCharactersData();
+    fetchData();
   }, []);
 
   return (
     <Container>
-      <Content>
-        {characters.map((character) => (
-          <CardItem key={character.id} character={character} />
-        ))}
-      </Content>
+      {chapters.map((chapter) => (
+        <Content key={chapter.name}>
+          <Header />
+          <Button>Details</Button>
+          <Button>Remove</Button>
+          <Title>{chapter.name}</Title>
+          <ImageContainer>
+            <Image src={chapter.image} alt={chapter.name} />
+          </ImageContainer>
+        </Content>
+      ))}
     </Container>
-  );
-};
-
-interface CardItemProps {
-  character: Character;
-}
-
-const CardItem: FC<CardItemProps> = ({ character }) => {
-  return (
-    <div>
-      <Header>
-        <Button>Details</Button>
-        <Button>Remove</Button>
-      </Header>
-      <Title>{character.name}</Title>
-      <ImageContainer>
-        <Image src={character.image} alt={character.name} />
-      </ImageContainer>
-    </div>
   );
 };
 
