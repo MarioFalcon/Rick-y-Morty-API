@@ -5,12 +5,11 @@ import {
   Button,
   Container,
   Content,
-  Header,
   ImageContainer,
   Image,
   Title,
 } from "./cardstyles";
-import { Category } from "../../models/Category";
+import { Category } from "../../models/character";
 import { RYMChapters } from "../../services/rym/rym";
 
 
@@ -26,17 +25,21 @@ const Card: FC = () => {
     fetchData();
   }, []);
 
+
+  
   return (
     <Container>
       {chapters.map((chapter) => (
         <Content key={chapter.name}>
-          <Header />
-          <Button>Details</Button>
-          <Button>Remove</Button>
+         
           <Title>{chapter.name}</Title>
           <ImageContainer>
-            <Image src={chapter.image} alt={chapter.name} />
+            <Image src={chapter.image}  />
           </ImageContainer>
+          
+          <Button>Details</Button>
+          <Button>Remove</Button>
+          
         </Content>
       ))}
     </Container>

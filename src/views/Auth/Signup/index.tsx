@@ -12,6 +12,7 @@ import {
   Link,
   Title,
 } from './styles'
+
 import { Formik } from 'formik'
 import { InitialValues, ValidationSchema } from './constant'
 import useLogic from './logic'
@@ -23,7 +24,7 @@ const Signup: FC = () => {
 
   return (
     <Container>
-      <VideoBackground videoSrc="/blue.mp4" />
+      <VideoBackground videoSrc="/realism.mp4" />
       <Formik
         initialValues={InitialValues}
         validationSchema={ValidationSchema}

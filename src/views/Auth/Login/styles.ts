@@ -1,7 +1,6 @@
 import styled from 'styled-components'
-import { Link as DefaultLink } from 'react-router-dom'
 import DefaultButton from '../../../components/Button/button'
-export const Container = styled.div``
+import { Link as DefaultLink } from 'react-router-dom'
 
 export const Form = styled.form`
   height: 530px;
@@ -63,7 +62,7 @@ export const Label = styled.label`
 `
 
 export const Input = styled.input`
-  height: 50px;
+  height: 30px;
   width: 95%;
   background-color: rgba(199, 215, 245, 0.8);
   border-radius: 3px;
@@ -72,7 +71,7 @@ export const Input = styled.input`
   font-size: 16px;
   font-weight: 300;
   color: #000000;
-  / &:-webkit-autofill {
+  &:-webkit-autofill {
     -webkit-text-fill-color: #000000;
     box-shadow: 0 0 0px 1000px rgba(199, 215, 245, 0.8) inset;
   }
@@ -80,16 +79,12 @@ export const Input = styled.input`
   &:focus {
     background-color: rgba(199, 215, 245, 0.8);
   }
-
-  @media screen and (max-width: 768px) {
-    height: 30px;
-  }
 `
 
 export const Button = styled(DefaultButton)`
-  margin-top: 50px;
+  margin-top: 30px;
   width: 100%;
-  background-color: rgba(81, 185, 249, 0.45);
+  background-color: rgba(0, 185, 0, 0.2);
   color: #ffffff;
   padding: 15px 0;
   font-size: 18px;
@@ -98,8 +93,9 @@ export const Button = styled(DefaultButton)`
   cursor: pointer;
 
   &:hover {
-    text-decoration: underline;
-    text-shadow: 0px 0px 10px #cf0ea9;
+    color: lime;
+   
+    
   }
 
   @media screen and (max-width: 768px) {
@@ -107,6 +103,7 @@ export const Button = styled(DefaultButton)`
     margin-top: 5px;
   }
 `
+
 export const InputError = styled.span`
   color: red;
   font-size: 11px;
@@ -121,17 +118,19 @@ export const Info = styled.p`
   margin-top: 16px;
   text-align: center;
 `
-
 export const Link = styled(DefaultLink)`
   color: #dff9ff;
   font-size: 14px;
-  margin-top: 16px;
+  margin-top: 18px;
   text-align: center;
   transition: color 200ms ease-in-out;
-  text-shadow: 0px 0px 10px #cf0ea9;
+  text-shadow: 0px 0px 10px lime;
 
   &:hover {
     color: #ffffff;
     text-shadow: 0px 0px 10px #ffffff;
   }
 `
+
+
+export const Container = styled.div``

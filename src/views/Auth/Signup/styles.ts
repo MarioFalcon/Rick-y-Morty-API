@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { Link as DefaultLink } from 'react-router-dom'
 import DefaultButton from '../../../components/Button/button'
 
-export const Container = styled.div``
+
 
 export const Form = styled.form`
   height: 585px;
@@ -87,7 +87,7 @@ export const Input = styled.input`
 export const Button = styled(DefaultButton)`
   margin-top: 30px;
   width: 100%;
-  background-color: rgba(81, 185, 249, 0.45);
+  background-color: rgba(0, 185, 0, 0.2);
   color: #ffffff;
   padding: 15px 0;
   font-size: 18px;
@@ -96,8 +96,9 @@ export const Button = styled(DefaultButton)`
   cursor: pointer;
 
   &:hover {
-    text-decoration: underline;
-    text-shadow: 0px 0px 10px #cf0ea9;
+    color: lime;
+   
+    
   }
 
   @media screen and (max-width: 768px) {
@@ -127,10 +128,11 @@ export const Link = styled(DefaultLink)`
   margin-top: 18px;
   text-align: center;
   transition: color 200ms ease-in-out;
-  text-shadow: 0px 0px 10px #cf0ea9;
+  text-shadow: 0px 0px 10px lime;
 
   &:hover {
     color: #ffffff;
     text-shadow: 0px 0px 10px #ffffff;
   }
 `
+export const Container = styled.div``

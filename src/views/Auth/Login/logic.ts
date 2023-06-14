@@ -11,7 +11,7 @@ const useLogic = () => {
         const user = await login(values.email, values.password)
         console.log(user)
         if (user) {
-          navigate('/dashboard')
+          navigate('/selection')
         }
       } catch (e) {
         console.log(e)

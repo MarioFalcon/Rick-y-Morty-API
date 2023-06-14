@@ -31,21 +31,21 @@ export const ButtonContainer = styled.div`
 
 export const Button = styled.button`
   background-color: transparent;
-  color: white;
+  color: lime;
   padding: 10px 20px;
-  border: none;
-  margin-right: 10px;
+  border: lime;
+
   border-radius: 50px;
   cursor: pointer;
-  border: 2px solid white;
-  font-size: 15px;
+
+  font-size: 25px;
   transition: all 0.3s ease-in-out;
   min-width: 115px;
 
   &:hover {
+    color: white;
     background-color: rgba(255, 255, 255, 0.1);
-    border-color: #3f51b5;
-    text-decoration: underline;
+    border-color: lime;
     text-shadow: 0px 0px 10px #ffffff;
   }
 

@@ -1,5 +1,5 @@
-import { Category, RYMResponse, RYMNormalize } from '../../models/Category'
-import { getCachedChapters, setCachedChapters } from '../storage/categories'
+import { Category, RYMResponse, RYMNormalize } from '../../models/character'
+import { getCachedChapters, setCachedChapters } from '../storage/storage'
 
 export const RYMChapters = async (): Promise<Category[]> => {
   const savedChapters = getCachedChapters()
@@ -9,6 +9,7 @@ export const RYMChapters = async (): Promise<Category[]> => {
     const data: RYMResponse = await response.json();
 
     const normalizedData = data.results.map(RYMNormalize);
+    
     setCachedChapters(normalizedData); 
 
     return normalizedData;
