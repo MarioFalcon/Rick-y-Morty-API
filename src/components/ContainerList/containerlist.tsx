@@ -8,44 +8,41 @@ import {
   ImageContainer,
   Image,
   Title,
-} from "./cardstyles";
+} from "./containerListstyles";
 
-import { Categorycharacters } from '../../models/character'
+import { CategoryEpisodes } from '../../models/episodes'
 
-import { RYMChapters } from "../../services/rym/rym";
+import { RYMEpisodes } from '../../services/rym/rym'
 
 
-const Card: FC = () => {
-  const [chapters, setChapters] = useState<Categorycharacters[]>([])
+
+const ContainerList: FC = () => {
+  const [chapters, setChapters] = useState<CategoryEpisodes[]>([])
 
   useEffect(() => {
     const fetchData = async () => {
-      const chaptersData = await RYMChapters();
-      setChapters(chaptersData);
-    };
+      const chaptersData = await RYMEpisodes()
+      setChapters(chaptersData)
+    }
 
-    fetchData();
-  }, []);
+    fetchData()
+  }, [])
 
-
-  
   return (
     <Container>
       {chapters.map((chapter) => (
         <Content key={chapter.name}>
-         
           <Title>{chapter.name}</Title>
+          <Title>{chapter.episode}</Title>
           <ImageContainer>
-            <Image src={chapter.image}  />
+            {/* <Image src={chapter.characters} /> */}
           </ImageContainer>
-          
           <Button>Details</Button>
           <Button>Remove</Button>
-          
         </Content>
       ))}
     </Container>
-  );
-};
+  )
+}
 
-export default memo(Card);
+export default memo(ContainerList);

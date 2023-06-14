@@ -1,19 +1,18 @@
-export type RYMResult = {
+export type RYMResultCharacter = {
   created: string
   episode: Array<{}>
   gender: string
   id: number
   image: string
-
   name: string
-
   species: string
   status: string
   type: string
   url: string
+  results: RYMResultCharacter[]
 }
 
-export type RYMResponse = {
+export type RYMResultCharacterGeneral = {
   info: {
     count: number
     next: string | null
@@ -21,10 +20,9 @@ export type RYMResponse = {
     prev: string | null
   }
 
-  results: RYMResult[]
 }
 
-export const RYMNormalize = (input: RYMResult) => ({
+export const RYMNormalizeCaracter = (input: RYMResultCharacter) => ({
   name: input?.name || '',
   image: input?.image || '',
   id: input?.id || '',
@@ -32,4 +30,4 @@ export const RYMNormalize = (input: RYMResult) => ({
   status: input?.status || '',
 })
 
-export type Category = ReturnType<typeof RYMNormalize>
+export type Categorycharacters = ReturnType<typeof RYMNormalizeCaracter>
