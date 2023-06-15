@@ -10,12 +10,13 @@ import {
   InputError,
   Label,
   Title,
+ Link,
  
 } from './styles'
 
 import VideoBackground from '../../../components/VideoBackground/videoBackground'
 import { Formik } from 'formik'
-import { Link } from 'react-router-dom'
+
 import useLogic from './logic'
 import { InitialValues, ValidationSchema } from './constant'
 import { Props } from './types'

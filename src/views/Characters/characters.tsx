@@ -4,7 +4,7 @@ import Header from '../../components/Header/header'
 import Footer from '../../components/Footer/footer'
 import Card from '../../components/Card/card'
 import VideoBackground from '../../components/VideoBackground/videoBackground'
-
+import BackArrow from '../../components/Back/backArrow'
 
 import { Container, DashboardCards } from './charactersStyles'
 
@@ -12,12 +12,14 @@ import { Container, DashboardCards } from './charactersStyles'
 const Characters: FC = () => {
   return (
     <Container>
+      <BackArrow />
     <DashboardCards>
     <Header onLogout={function (): void {}} />
       <VideoBackground videoSrc="/realism.mp4" />
       <Card />
       <Footer />
     </DashboardCards>
+    
     </Container>
   )
 }
