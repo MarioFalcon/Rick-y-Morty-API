@@ -33,7 +33,7 @@ const Selection: FC = () => {
 
   return (
     <DashboardContainer>
-      <Header />
+      <Header onLogout={function (): void {}} />
       <VideoBackground videoSrc="/duo.mp4" />
       <DashboardContent>
         <ButtonContainer>

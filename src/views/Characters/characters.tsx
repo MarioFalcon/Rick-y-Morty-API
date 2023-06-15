@@ -13,7 +13,7 @@ const Characters: FC = () => {
   return (
     <Container>
     <DashboardCards>
-      <Header />
+    <Header onLogout={function (): void {}} />
       <VideoBackground videoSrc="/realism.mp4" />
       <Card />
       <Footer />

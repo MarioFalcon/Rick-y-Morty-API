@@ -17,10 +17,10 @@ import { Formik } from 'formik'
 import { InitialValues, ValidationSchema } from './constant'
 import useLogic from './logic'
 import VideoBackground from '../../../components/VideoBackground/videoBackground'
+import { Props } from './types'
 
-
-const Signup: FC = () => {
-  const { handleOnSubmit } = useLogic()
+const Signup: FC<Props> = ({ onSignup }) => {
+  const { handleOnSubmit } = useLogic(onSignup)
 
   return (
     <Container>
