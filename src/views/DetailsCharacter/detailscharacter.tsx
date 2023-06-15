@@ -21,6 +21,7 @@ import { Categorycharacters } from '../../models/character'
 
 
 
+
 const DetailsCharacter: FC = () => {
   const { id } = useParams()
   const navigate = useNavigate()
