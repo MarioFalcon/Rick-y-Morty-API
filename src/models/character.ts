@@ -28,6 +28,10 @@ export const RYMNormalizeCaracter = (input: RYMResultCharacter) => ({
   id: input?.id || '',
   species: input?.species || '',
   status: input?.status || '',
+  created: input?.created || '',
+  gender: input?.gender || '',
+  type: input?.type || '',
+  
 })
 
 export type Categorycharacters = ReturnType<typeof RYMNormalizeCaracter>
