@@ -1,9 +1,10 @@
 import { FC } from 'react';
 import { Container, ButtonContainer, Button } from './headerStyles'
 import useLogic from './headerLogic';
+import { Props } from './headerTypes'
 
-const Header: FC = () => {
-const { handleLogout } = useLogic()
+const Header: FC<Props> = ({ onLogout }) => {
+  const { handleLogout } = useLogic(onLogout)
 
   return (
     <Container>

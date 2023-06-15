@@ -17,10 +17,11 @@ import VideoBackground from '../../../components/VideoBackground/videoBackground
 import { Formik } from 'formik'
 import { Link } from 'react-router-dom'
 import useLogic from './logic'
-
 import { InitialValues, ValidationSchema } from './constant'
-const Login: FC = () => {
-  const { handleOnSubmit } = useLogic()
+import { Props } from './types'
+
+const Login: FC<Props> = ({ onLogin }) => {
+  const { handleOnSubmit } = useLogic(onLogin)
 
   return (
     <>
