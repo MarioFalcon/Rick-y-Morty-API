@@ -8,6 +8,8 @@ import Episodes from '../../views/Episodes/episodes'
 import { BrowserRouter, Navigate, Route, Routes, useLocation } from 'react-router-dom'
 import { getToken } from '../../services/storage/storage'
 import { Props } from './types'
+import Detailscharacters from '../../views/DetailsCharacter/detailscharacter'
+
 
 const Router: FC<Props> = ({ onLogin, onSignup }) => {
   const ProtectedRoutes = ({ children }: { children: JSX.Element }) => {
@@ -46,6 +48,7 @@ const Router: FC<Props> = ({ onLogin, onSignup }) => {
         <Route path="/characters" element={<ProtectedRoutes><><Characters /></></ProtectedRoutes>}></Route>
         <Route path="/episodes" element={<ProtectedRoutes><><Episodes /></></ProtectedRoutes>}></Route>
         <Route path="/selection" element={<ProtectedRoutes><><Selection /></></ProtectedRoutes>}></Route>
+        <Route path="/detailscharacters" element={<Detailscharacters />} />
       </Routes>
     </BrowserRouter>
   )
