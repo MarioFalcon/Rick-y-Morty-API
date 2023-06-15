@@ -48,7 +48,7 @@ const Router: FC<Props> = ({ onLogin, onSignup }) => {
         <Route path="/characters" element={<ProtectedRoutes><><Characters /></></ProtectedRoutes>}></Route>
         <Route path="/episodes" element={<ProtectedRoutes><><Episodes /></></ProtectedRoutes>}></Route>
         <Route path="/selection" element={<ProtectedRoutes><><Selection /></></ProtectedRoutes>}></Route>
-        <Route path="/detailscharacters" element={<Detailscharacters />} />
+        <Route path="/detailscharacters" element={<ProtectedRoutes><><Detailscharacters /></></ProtectedRoutes>}></Route>
       </Routes>
     </BrowserRouter>
   )
