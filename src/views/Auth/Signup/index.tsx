@@ -1,4 +1,5 @@
 import { FC, memo } from 'react'
+import { Formik } from 'formik'
 import {
   Button,
   Container,
@@ -12,8 +13,6 @@ import {
   Link,
   Title,
 } from './styles'
-
-import { Formik } from 'formik'
 import { InitialValues, ValidationSchema } from './constant'
 import useLogic from './logic'
 import VideoBackground from '../../../components/VideoBackground/videoBackground'

@@ -1,6 +1,6 @@
 import { FC, memo, useCallback } from 'react'
-import { ButtonStart } from './startStyles'
 import { useNavigate } from 'react-router-dom'
+import { ButtonStart } from './startStyles'
 
 export const Start: FC = () => {
   const navigate = useNavigate()

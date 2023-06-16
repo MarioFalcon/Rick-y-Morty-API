@@ -1,6 +1,6 @@
+import { Link as DefaultLink } from 'react-router-dom'
 import styled from 'styled-components'
 import DefaultButton from '../../../components/Button/button'
-import { Link as DefaultLink } from 'react-router-dom'
 
 export const Form = styled.form`
   height: 530px;
@@ -94,8 +94,6 @@ export const Button = styled(DefaultButton)`
 
   &:hover {
     color: lime;
-   
-    
   }
 
   @media screen and (max-width: 768px) {
@@ -131,6 +129,5 @@ export const Link = styled(DefaultLink)`
     text-shadow: 0px 0px 10px #ffffff;
   }
 `
-
 
 export const Container = styled.div``

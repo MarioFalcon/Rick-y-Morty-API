@@ -19,7 +19,6 @@ export type RYMResultCharacterGeneral = {
     pages: number
     prev: string | null
   }
-
 }
 
 export const RYMNormalizeCaracter = (input: RYMResultCharacter) => ({
@@ -31,7 +30,6 @@ export const RYMNormalizeCaracter = (input: RYMResultCharacter) => ({
   created: input?.created || '',
   gender: input?.gender || '',
   type: input?.type || '',
-  
 })
 
 export type Categorycharacters = ReturnType<typeof RYMNormalizeCaracter>

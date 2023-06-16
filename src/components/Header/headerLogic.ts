@@ -1,6 +1,6 @@
 import { useCallback } from 'react'
-import { logout } from '../../services/firebase/auth'
 import { useNavigate } from 'react-router-dom'
+import { logout } from '../../services/firebase/auth'
 import { Props } from './headerTypes'
 
 const useLogic = (onLogout: Props['onLogout']) => {

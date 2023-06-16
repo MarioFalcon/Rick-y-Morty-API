@@ -4,13 +4,11 @@ import {
   RYMResultCharacter,
 } from '../../models/character'
 
-
 import {
   CategoryEpisodes,
   RYMNormalizeEpisodes,
   RYMResultEpisodes,
 } from '../../models/episodes'
-
 
 import {
   getCachedChapters,
@@ -19,7 +17,6 @@ import {
   setCachedEpisodes,
 } from '../storage/storage'
 
-
 export const RYMChapters = async (): Promise<Categorycharacters[]> => {
   const savedChapters = getCachedChapters()
 
@@ -27,7 +24,7 @@ export const RYMChapters = async (): Promise<Categorycharacters[]> => {
     const response = await fetch(`https://rickandmortyapi.com/api/character`)
     const data: RYMResultCharacter = await response.json()
 
-    const normalizedData = data.results.map(RYMNormalizeCaracter);
+    const normalizedData = data.results.map(RYMNormalizeCaracter)
     setCachedChapters(normalizedData)
 
     return normalizedData

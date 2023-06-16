@@ -2,8 +2,6 @@ import styled from 'styled-components'
 import DefaultButton from '../Button/button'
 
 export const Container = styled.div`
- 
-
   margin-left: 100px;
   margin-right: 100px;
   display: grid;
