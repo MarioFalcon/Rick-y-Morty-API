@@ -3,9 +3,8 @@ import styled from 'styled-components'
 export const BackButton = styled.button`
   position: fixed;
   top: 110px;
-  left: 20px; 
-  z-index: 9; 
-
+  left: 20px;
+  z-index: 9;
   background-color: transparent;
   color: lime;
   padding: 10px 20px;

@@ -1,9 +1,7 @@
 import { FC, memo } from 'react'
-
 import Start from '../../components/Start/start'
 import Footer from '../../components/Footer/footer'
 import VideoBackground from '../../components/VideoBackground/videoBackground'
-
 import { WelcomeDiv, Title, Subtitle } from './welcomeStyles'
 
 const Welcome: FC = () => {

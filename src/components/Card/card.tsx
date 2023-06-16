@@ -1,4 +1,5 @@
 import { FC, memo, useState, useCallback, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 import {
   Button,
@@ -8,25 +9,17 @@ import {
   Image,
   Title,
 } from './cardstyles'
-
-import {Props} from './types'
+import { Props } from './types'
 import { Categorycharacters } from '../../models/character'
-import { useNavigate } from 'react-router-dom';
 import { RYMChapters } from '../../services/rym/rym'
 
 const Card: FC = () => {
-
-
-
   const navigate = useNavigate()
 
   const handleGoToDetails = useCallback(() => {
     navigate(`/detailscharacters/`)
-  }, [, navigate])
+  }, [navigate])
 
-
-
-  
   const [chapters, setChapters] = useState<Categorycharacters[]>([])
 
   useEffect(() => {
@@ -37,8 +30,6 @@ const Card: FC = () => {
 
     fetchData()
   }, [])
-
-
 
   return (
     <Container>

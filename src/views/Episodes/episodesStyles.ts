@@ -6,21 +6,18 @@ export const DashboardContainer = styled.div`
   align-items: center;
   width: 100%;
 `
-
 export const DashboardContent = styled.div`
   width: 80%;
   margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
 `
-
 export const DashboardCards = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px;
 `
-
 export const Button = styled.button`
   position: fixed;
   top: 110px;
@@ -63,8 +60,8 @@ export const Button = styled.button`
 export const Back = styled.button`
   position: fixed;
   top: 110px;
-  left: 20px; 
-  z-index: 9; 
+  left: 20px;
+  z-index: 9;
 
   background-color: transparent;
   color: lime;

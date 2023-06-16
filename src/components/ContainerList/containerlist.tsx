@@ -1,6 +1,4 @@
-import  { FC, memo, useState, useEffect } from "react";
-
-
+import { FC, memo, useState, useEffect } from 'react'
 import {
   Button,
   Container,
@@ -8,13 +6,9 @@ import {
   ImageContainer,
   Image,
   Title,
-} from "./containerListstyles";
-
+} from './containerListstyles'
 import { CategoryEpisodes } from '../../models/episodes'
-
 import { RYMEpisodes } from '../../services/rym/rym'
-
-
 
 const ContainerList: FC = () => {
   const [chapters, setChapters] = useState<CategoryEpisodes[]>([])
@@ -45,4 +39,4 @@ const ContainerList: FC = () => {
   )
 }
 
-export default memo(ContainerList);
+export default memo(ContainerList)

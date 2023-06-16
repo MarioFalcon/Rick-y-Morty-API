@@ -2,8 +2,6 @@ import styled from 'styled-components'
 import { Link as DefaultLink } from 'react-router-dom'
 import DefaultButton from '../../../components/Button/button'
 
-
-
 export const Form = styled.form`
   height: 585px;
   width: 340px;
@@ -97,8 +95,6 @@ export const Button = styled(DefaultButton)`
 
   &:hover {
     color: lime;
-   
-    
   }
 
   @media screen and (max-width: 768px) {
