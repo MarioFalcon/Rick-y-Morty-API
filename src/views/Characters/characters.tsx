@@ -1,10 +1,12 @@
 import { FC, memo, useCallback } from 'react'
-import { useNavigate } from 'react-router-dom'
+
 import Header from '../../components/Header/header'
 import Footer from '../../components/Footer/footer'
 import Card from '../../components/Card/card'
 import VideoBackground from '../../components/VideoBackground/videoBackground'
+
 import { Container, DashboardCards, Back } from './charactersStyles'
+import { useNavigate } from 'react-router-dom'
 
 const Characters: FC = () => {
   const navigate = useNavigate()

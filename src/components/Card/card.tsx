@@ -1,6 +1,7 @@
 import { FC, memo, useState, useCallback, useEffect } from 'react'
+import { Categorycharacters } from '../../models/character'
 import { useNavigate } from 'react-router-dom'
-
+import { RYMChapters } from '../../services/rym/rym'
 import {
   Button,
   Container,
@@ -8,17 +9,18 @@ import {
   ImageContainer,
   Image,
   Title,
+  ContainerButton,
 } from './cardstyles'
-import { Props } from './types'
-import { Categorycharacters } from '../../models/character'
-import { RYMChapters } from '../../services/rym/rym'
 
 const Card: FC = () => {
+  
   const navigate = useNavigate()
-
-  const handleGoToDetails = useCallback(() => {
-    navigate(`/detailscharacters/`)
-  }, [navigate])
+  const handleGoToDetails = useCallback(
+    (chapter: Categorycharacters) => {
+      navigate(`/detailscharacters/${chapter.id}`)
+    },
+    [navigate]
+  )
 
   const [chapters, setChapters] = useState<Categorycharacters[]>([])
 
@@ -34,13 +36,15 @@ const Card: FC = () => {
   return (
     <Container>
       {chapters.map((chapter) => (
-        <Content key={chapter.name}>
+        <Content key={chapter.id}>
           <Title>{chapter.name}</Title>
           <ImageContainer>
             <Image src={chapter.image} />
           </ImageContainer>
-          <Button onClick={handleGoToDetails}>Details</Button>
-          <Button>Remove</Button>
+          <ContainerButton>
+            <Button onClick={() => handleGoToDetails(chapter)}>Details</Button>
+            <Button>Remove</Button>
+          </ContainerButton>
         </Content>
       ))}
     </Container>

@@ -1,9 +1,5 @@
 import styled from 'styled-components'
 
-export const Container = styled.div``
-
-export const DashboardCards = styled.div``
-
 export const Back = styled.button`
   position: fixed;
   top: 110px;
@@ -38,3 +34,7 @@ export const Back = styled.button`
     font-size: 14px;
   }
 `
+
+export const Container = styled.div``
+
+export const DashboardCards = styled.div``
