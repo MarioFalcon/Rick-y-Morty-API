@@ -60,7 +60,7 @@ export const Avatar = styled.div`
   height: 300px;
   border-radius: 50%;
  
-  background-image: url('https://fondosmil.com/fondo/27353.png');
+  background-image: url('https://i.pinimg.com/originals/1f/20/55/1f20558bc93e0b2f73ef15ab38d626a9.gif');
   background-size: 200%; 
   background-position: center; 
   

@@ -16,6 +16,7 @@ export const Title = styled.h1`
   text-align: center;
   margin-bottom: 10px;
   text-shadow: 0px 0px 20px #6583fa;
+  font-family: 'get_schwifty';
 `
 
 export const Subtitle = styled.h3`
