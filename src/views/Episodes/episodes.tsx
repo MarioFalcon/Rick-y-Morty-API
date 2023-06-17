@@ -1,10 +1,10 @@
-import {FC, memo, useCallback} from 'react'
+import { FC, memo, useCallback } from 'react'
 
 import Header from '../../components/Header/header'
 import Footer from '../../components/Footer/footer'
 import ContainerList from '../../components/ContainerList/containerlist'
-
 import VideoBackground from '../../components/VideoBackground/videoBackground'
+
 import {
   Back,
   DashboardContainer,
@@ -14,13 +14,10 @@ import {
 import { useNavigate } from 'react-router-dom'
 
 const Episodes: FC = () => {
-
-
   const navigate = useNavigate()
   const handleGoToBack = useCallback(() => {
     navigate('/selection')
   }, [navigate])
-
 
   return (
     <DashboardContainer>
@@ -35,7 +32,6 @@ const Episodes: FC = () => {
       <Footer />
     </DashboardContainer>
   )
-
 }
 
 export default memo(Episodes)

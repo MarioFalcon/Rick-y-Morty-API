@@ -1,48 +1,56 @@
-import  { FC, memo, useState, useEffect } from "react";
-
-
+import { FC, memo, useState, useEffect,useCallback } from 'react'
+import { CategoryEpisodes } from '../../models/episodes'
+import { useNavigate } from 'react-router-dom'
+import { RYMEpisodes } from '../../services/rym/rym'
 import {
   Button,
   Container,
   Content,
   ImageContainer,
-  Image,
   Title,
-} from "./containerListstyles";
-
-import { CategoryEpisodes } from '../../models/episodes'
-
-import { RYMEpisodes } from '../../services/rym/rym'
-
-
+  ContainerButton,
+} from './containerListstyles'
 
 const ContainerList: FC = () => {
-  const [chapters, setChapters] = useState<CategoryEpisodes[]>([])
+
+  const navigate = useNavigate()
+  const handleGoToDetails = useCallback(
+    (episode: CategoryEpisodes) => {
+      navigate(`/detailsepisodes/${episode.id}`)
+    },
+    [navigate]
+  )
+
+  const [episodes, setEpisodes] = useState<CategoryEpisodes[]>([])
 
   useEffect(() => {
     const fetchData = async () => {
-      const chaptersData = await RYMEpisodes()
-      setChapters(chaptersData)
+      const episdoesData = await RYMEpisodes()
+      setEpisodes(episdoesData)
     }
 
     fetchData()
   }, [])
 
+
   return (
     <Container>
-      {chapters.map((chapter) => (
-        <Content key={chapter.name}>
-          <Title>{chapter.name}</Title>
-          <Title>{chapter.episode}</Title>
+      {episodes.map((episode) => (
+        <Content key={episode.name}>
+          <Title>{episode.id}</Title>
+          <Title>{episode.name}</Title>
+          
           <ImageContainer>
-            {/* <Image src={chapter.characters} /> */}
+            { }
           </ImageContainer>
-          <Button>Details</Button>
+          <ContainerButton>
+          <Button onClick={() => handleGoToDetails(episode)}>Details</Button>
           <Button>Remove</Button>
+          </ContainerButton>
         </Content>
       ))}
     </Container>
   )
 }
 
-export default memo(ContainerList);
+export default memo(ContainerList)

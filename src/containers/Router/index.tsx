@@ -9,6 +9,7 @@ import { BrowserRouter, Navigate, Route, Routes, useLocation } from 'react-route
 import { getToken } from '../../services/storage/storage'
 import { Props } from './types'
 import Detailscharacters from '../../views/DetailsCharacter/detailscharacter'
+import Detailsepisodes from '../../views/DetailsEpisodes/detailsepisodes'
 
 
 const Router: FC<Props> = ({ onLogin, onSignup }) => {
@@ -48,7 +49,9 @@ const Router: FC<Props> = ({ onLogin, onSignup }) => {
         <Route path="/characters" element={<ProtectedRoutes><><Characters /></></ProtectedRoutes>}></Route>
         <Route path="/episodes" element={<ProtectedRoutes><><Episodes /></></ProtectedRoutes>}></Route>
         <Route path="/selection" element={<ProtectedRoutes><><Selection /></></ProtectedRoutes>}></Route>
-        <Route path="/detailscharacters" element={<ProtectedRoutes><><Detailscharacters /></></ProtectedRoutes>}></Route>
+        <Route path="/detailscharacters/:id" element={<ProtectedRoutes><Detailscharacters /></ProtectedRoutes>}></Route>
+        <Route path="/detailsepisodes/:id" element={<ProtectedRoutes><Detailsepisodes /></ProtectedRoutes>}></Route>
+
       </Routes>
     </BrowserRouter>
   )

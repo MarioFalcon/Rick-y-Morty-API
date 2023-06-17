@@ -1,26 +1,10 @@
 import styled from 'styled-components'
 
-export const Container = styled.div`
-
-
-
-
-`;
-
-
-export const DashboardCards = styled.div`
-
-
-
-
-`;
-
-
 export const Back = styled.button`
   position: fixed;
   top: 110px;
-  left: 20px; 
-  z-index: 9; 
+  left: 20px;
+  z-index: 9;
 
   background-color: transparent;
   color: lime;
@@ -50,3 +34,7 @@ export const Back = styled.button`
     font-size: 14px;
   }
 `
+
+export const Container = styled.div``
+
+export const DashboardCards = styled.div``

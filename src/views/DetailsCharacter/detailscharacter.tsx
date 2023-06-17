@@ -3,7 +3,7 @@ import {
   DetailsContainer,
   DetailsContent,
   DetailsTitle,
-  DetailsExplanation,
+  DetailsSpecies,
   ButtonContainer,
   Buttonfavorito,
   Buttoneditar,
@@ -26,21 +26,17 @@ const DetailsCharacter: FC = () => {
   const { id } = useParams()
   const navigate = useNavigate()
 
-  
   const [chapter, setChapter] = useState<Categorycharacters | null>(null)
 
   useEffect(() => {
     const fetchData = async () => {
       const chaptersData = await RYMChapters()
-      const selectedChapter = chaptersData.find((chapter) => chapter.id === id)
+      const selectedChapter = chaptersData.find((chapter) => typeof id === 'string' && chapter.id === parseInt(id))
       setChapter(selectedChapter || null)
     }
-
+  
     fetchData()
   }, [id])
-
-
-
 
   const handleGoBack = useCallback(() => {
     navigate('/characters')
@@ -50,21 +46,23 @@ const DetailsCharacter: FC = () => {
     <DetailsContainer>
       <VideoBackground videoSrc="/realism.mp4" />
       <DetailsContent>
-        <ButtonContainer>
+
+        {chapter && (
+    <>
+     <DetailsTitle>{chapter.name}</DetailsTitle>
+      <ImageContainer>
+        <Image src={chapter.image} />
+      </ImageContainer>
+            <DetailsSpecies><b>This character is a {chapter.species}, is in a <b>{chapter.status}</b> state.</b></DetailsSpecies>
+          
+          </>
+        )}
+                <ButtonContainer>
           <Buttonfavorito onClick={handleGoBack}>Back</Buttonfavorito>
           <Buttoneditar>Edit</Buttoneditar>
           <Buttonfavorito>Favorites</Buttonfavorito>
           <Buttoneliminar>Delete</Buttoneliminar>
         </ButtonContainer>
-        {chapter && (
-          <>
-            <ImageContainer>
-              <Image src={chapter.image} />
-            </ImageContainer>
-            <DetailsTitle>{chapter.name}</DetailsTitle>
-            <DetailsExplanation></DetailsExplanation>
-          </>
-        )}
       </DetailsContent>
       <Footer />
     </DetailsContainer>
