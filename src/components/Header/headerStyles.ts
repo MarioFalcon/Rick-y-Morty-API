@@ -1,5 +1,15 @@
 import styled from 'styled-components'
 
+export const Gif = styled.img`
+  width: 60px;
+  z-index: 5;
+  position: absolute;
+  left: 36px;
+  filter: brightness(150%);
+  background-color: transparent;
+  border-radius: 100px;
+`;
+
 export const Container = styled.header`
   background: rgba(17, 17, 17, 0.7);
   color: #fff;

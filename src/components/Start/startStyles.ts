@@ -11,6 +11,7 @@ export const ButtonStart = styled.button`
   color: pink;
   padding: 10px 20px;
   border: none;
+  font-family: 'get_schwifty';
   font-weight: bold;
   animation: ${blinkAnimation} 1s infinite;
   border-radius: 50px;

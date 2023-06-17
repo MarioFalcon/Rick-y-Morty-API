@@ -8,7 +8,7 @@ const Welcome: FC = () => {
   return (
     <WelcomeDiv>
       <VideoBackground videoSrc="/space.mp4" />
-      <Title>"The Ultimate Guide to Rick and Morty: Welcome!"</Title>
+      <Title>The Ultimate Guide to Rick and Morty Welcome!</Title>
       <Subtitle></Subtitle>
       <Start />
       <Footer />
