@@ -44,6 +44,7 @@ const Card: FC = () => {
           <ContainerButton>
             <Button onClick={() => handleGoToDetails(chapter)}>Details</Button>
             <Button>Remove</Button>
+            <Button>Favorite</Button>
           </ContainerButton>
         </Content>
       ))}

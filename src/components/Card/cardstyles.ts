@@ -3,7 +3,7 @@ import DefaultButton from '../../components/Button/button'
 
 export const ContainerButton = styled.div`
   display: flex;
-  margin-top: 5px;
+  margin-top: 10px;
   justify-content: center;
   align-items: center;
   flex-direction: row;
