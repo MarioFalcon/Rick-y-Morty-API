@@ -1,6 +1,6 @@
-import { FC } from 'react';
+import { FC } from 'react'
 import { Container, ButtonContainer, Button } from './headerStyles'
-import useLogic from './headerLogic';
+import useLogic from './headerLogic'
 import { Props } from './headerTypes'
 
 const Header: FC<Props> = ({ onLogout }) => {
@@ -14,7 +14,7 @@ const Header: FC<Props> = ({ onLogout }) => {
         <Button onClick={handleLogout}>Logout</Button>
       </ButtonContainer>
     </Container>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

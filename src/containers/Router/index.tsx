@@ -59,4 +59,3 @@ const Router: FC<Props> = ({ onLogin, onSignup }) => {
 
 export default Router
 
-

@@ -10,7 +10,6 @@ export const WelcomeDiv = styled.div`
   color: white;
   margin-top: 100px;
 `
-
 export const Title = styled.h1`
   font-size: 4vw;
   width: calc(80% - 20px);

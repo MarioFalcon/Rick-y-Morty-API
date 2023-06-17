@@ -8,4 +8,3 @@ export type Props = {
   image: string
   onRemove: (apodId: string) => void
 }
-
