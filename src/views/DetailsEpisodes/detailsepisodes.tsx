@@ -5,9 +5,8 @@ import {
   DetailsTitle,
   DetailsSpecies,
   ButtonContainer,
-  Buttonfavorito,
   Buttoneditar,
-  Buttoneliminar,
+  ButtonBack,
   Image,
   ImageContainer,
 } from './detailsepisodesStyles'
@@ -59,10 +58,9 @@ const DetailsEpisodes: FC = () => {
           </>
         )}
         <ButtonContainer>
-          <Buttonfavorito onClick={handleGoBack}>Back</Buttonfavorito>
+          <ButtonBack onClick={handleGoBack}>Back</ButtonBack>
           <Buttoneditar>Edit</Buttoneditar>
-          <Buttonfavorito>Favorites</Buttonfavorito>
-          <Buttoneliminar>Delete</Buttoneliminar>
+
         </ButtonContainer>
       </DetailsContent>
       <Footer />

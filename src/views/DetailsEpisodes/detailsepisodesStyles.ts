@@ -85,7 +85,7 @@ export const Buttoneditar = styled.button`
   }
 `
 
-export const Buttonfavorito = styled.button`
+export const ButtonBack = styled.button`
   background-color: transparent;
   color: white;
   padding: 10px 20px;

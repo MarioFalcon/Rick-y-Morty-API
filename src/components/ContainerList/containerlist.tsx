@@ -46,6 +46,7 @@ const ContainerList: FC = () => {
           <ContainerButton>
           <Button onClick={() => handleGoToDetails(episode)}>Details</Button>
           <Button>Remove</Button>
+          <Button>Favorite</Button>
           </ContainerButton>
         </Content>
       ))}
