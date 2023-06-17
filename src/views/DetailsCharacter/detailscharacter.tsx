@@ -6,7 +6,7 @@ import {
   DetailsTitle,
   DetailsSpecies,
   ButtonContainer,
-  Buttonfavorito,
+  ButtonBack,
   Buttoneditar,
   Image,
   ImageContainer,
@@ -57,7 +57,7 @@ const DetailsCharacter: FC = () => {
           </>
         )}
         <ButtonContainer>
-          <Buttonfavorito onClick={handleGoBack}>Back</Buttonfavorito>
+          <ButtonBack onClick={handleGoBack}>Back</ButtonBack>
           <Buttoneditar>Edit</Buttoneditar>
         </ButtonContainer>
       </DetailsContent>
