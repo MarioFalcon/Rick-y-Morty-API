@@ -10,6 +10,8 @@ import { getToken } from '../../services/storage/storage'
 import { Props } from './types'
 import Detailscharacters from '../../views/DetailsCharacter/detailscharacter'
 import Detailsepisodes from '../../views/DetailsEpisodes/detailsepisodes'
+import Detailsperfil from '../../views/Perfil/perfil'
+
 
 
 const Router: FC<Props> = ({ onLogin, onSignup }) => {
@@ -51,6 +53,7 @@ const Router: FC<Props> = ({ onLogin, onSignup }) => {
         <Route path="/selection" element={<ProtectedRoutes><><Selection /></></ProtectedRoutes>}></Route>
         <Route path="/detailscharacters/:id" element={<ProtectedRoutes><Detailscharacters /></ProtectedRoutes>}></Route>
         <Route path="/detailsepisodes/:id" element={<ProtectedRoutes><Detailsepisodes /></ProtectedRoutes>}></Route>
+        <Route path="/profile" element={<ProtectedRoutes><Detailsperfil /></ProtectedRoutes>}></Route>
 
       </Routes>
     </BrowserRouter>
