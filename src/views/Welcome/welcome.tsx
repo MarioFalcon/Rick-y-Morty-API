@@ -7,7 +7,7 @@ import { WelcomeDiv, Title, Subtitle } from './welcomeStyles'
 const Welcome: FC = () => {
   return (
     <WelcomeDiv>
-      <VideoBackground videoSrc="/realism.mp4" />
+      <VideoBackground videoSrc="/space.mp4" />
       <Title>"The Ultimate Guide to Rick and Morty: Welcome!"</Title>
       <Subtitle></Subtitle>
       <Start />
