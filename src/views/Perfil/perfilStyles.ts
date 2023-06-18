@@ -48,7 +48,7 @@ export const PerfilContainer = styled.div`
   align-items: center;
   justify-content: center;
   width: 500px;
-  height: 600px;
+  height: 500px;
   padding: 20px;
   border-radius: 28px;
   background-color: rgba(245, 245, 245, 0.6);
@@ -81,6 +81,10 @@ export const InfoItem = styled.p`
  
   color: black;
   font-size: 28px;
+  .email {
+    font-size: 32px;
+  }
+
 `
 
 export const AdditionalContainer = styled.div`

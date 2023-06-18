@@ -9,10 +9,7 @@ export const InitialValues = {
 
 export const ValidationSchema = object({
   displayName: string().required('name is a required field'),
-  phoneNumber: number()
-    .required('phone number is a required field')
-    .positive()
-    .integer(),
+  phoneNumber: number(),
   email: string()
     .email('not a valid email')
     .required('email is a required field'),
