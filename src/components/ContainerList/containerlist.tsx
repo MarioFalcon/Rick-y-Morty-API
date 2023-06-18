@@ -1,6 +1,6 @@
 import { FC, memo, useState, useEffect, useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { toggleFavoritesEpisode } from '../../services/storage/storage'
+import { getFavoritesEpisodes, toggleFavoritesEpisode } from '../../services/storage/storage'
 import { RYMEpisodes } from '../../services/rym/rym'
 import type { Props } from './types'
 import { CategoryEpisodes } from '../../models/episodes'
@@ -33,7 +33,7 @@ const ContainerList: FC<Props> = () => {
       setEpisodes((prevEpisodes) =>
         prevEpisodes.map((prevEpisodes) =>
           prevEpisodes.id === episode.id
-            ? { ...prevEpisodes, isFavorite: !prevEpisodes.isFav }
+            ? { ...prevEpisodes, isFav: !prevEpisodes.isFav }
             : prevEpisodes
         )
       )
@@ -46,9 +46,21 @@ const ContainerList: FC<Props> = () => {
       const episdoesData = await RYMEpisodes()
       const episodesWithFavorites = episdoesData.map((episode) => ({
         ...episode,
-        isFavorite: false,
+        isFav: false,
       }))
-      setEpisodes(episodesWithFavorites)
+
+
+      const storedFavorites = getFavoritesEpisodes()
+      const updatedEpisodes = episodesWithFavorites.map((episode) => ({
+        ...episode,
+        isFav: storedFavorites.some((fav) => fav.id === episode.id),
+      }))
+
+
+
+
+
+      setEpisodes(updatedEpisodes)
     }
 
     fetchData()
