@@ -4,8 +4,11 @@ import {
   Avatar,
   InfoContainer,
   InfoItem,
-  AdditionalContainer,
-  ButtonContainer,
+  Container,
+  Content,
+  Title,
+  Image,
+  ImageContainer,
   Back,
 } from './perfilStyles'
 
@@ -14,9 +17,12 @@ import Header from '../../components/Header/header'
 import Footer from '../../components/Footer/footer'
 import VideoBackground from '../../components/VideoBackground/videoBackground'
 import { useNavigate } from 'react-router-dom'
+import { getFavorites } from '../../services/storage/storage'
 
 const Perfil: FC = () => {
   const user = getUserInfo()
+
+  const cardFavorites = getFavorites()
 
   const navigate = useNavigate()
   const handleGoToBack = useCallback(() => {
@@ -27,22 +33,31 @@ const Perfil: FC = () => {
     <>
       <Back onClick={handleGoToBack}>Back</Back>
       <Header onLogout={function (): void {}} />
-      <VideoBackground videoSrc="/dragon.mp4" />
-      <ButtonContainer></ButtonContainer>
+      <VideoBackground videoSrc="/dragonattack.mp4" />
       <PerfilContainer>
         <Avatar />
         <InfoContainer>
           <InfoItem>
-            <b>Email: </b> 
+            <b>Email: </b>
             {user[0].email}
           </InfoItem>
           <InfoItem>
-          <b>Nombre: </b> 
+            <b>Nombre: </b>
             {user[0].displayName}
           </InfoItem>
         </InfoContainer>
       </PerfilContainer>
-      <AdditionalContainer></AdditionalContainer>
+
+      <Container>
+        {cardFavorites.map((chapter) => (
+          <Content key={chapter.id}>
+            <Title>{chapter.name}</Title>
+            <ImageContainer>
+              <Image src={chapter.image} />
+            </ImageContainer>
+          </Content>
+        ))}
+      </Container>
       <Footer />
     </>
   )
