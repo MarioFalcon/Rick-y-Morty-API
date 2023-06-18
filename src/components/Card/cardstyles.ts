@@ -33,11 +33,19 @@ export const ImageContainer = styled.div`
   border-radius: 50%;
   overflow: hidden;
 `
-export const Image = styled.img`
-  width: 100%;
-  height: 100%;
 
+export const FavoriteIcon = styled.div`
+width: 550px;
+
+`
+
+
+export const Image = styled.img`
+   width: 100%;
+  height: 100%;
   object-fit: cover;
+  position: relative; 
+  z-index: -1;
 `
 export const Title = styled.div`
   color: #ffffff;
@@ -77,3 +85,10 @@ export const DashboardCards = styled.div`
   flex-direction: column;
   align-items: center;
 `
+
+
+export const GifImage = styled.img`
+  width: 290px;
+  position: absolute; 
+  z-index: 8; 
+`;

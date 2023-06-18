@@ -1,5 +1,5 @@
 import { FC, memo, useState, useCallback, useEffect } from 'react';
-import {toggleFavorites } from '../../services/storage/storage';
+import { toggleFavorites } from '../../services/storage/storage';
 import { useNavigate } from 'react-router-dom';
 import { RYMChapters } from '../../services/rym/rym';
 import type { Props } from './types';
@@ -14,21 +14,31 @@ import {
   ContainerButton,
 } from './cardstyles';
 
+interface ExtendedCategorycharacters extends Categorycharacters {
+  isFavorite: boolean;
+}
 
 const Card: FC<Props> = () => {
-  const [chapters, setChapters] = useState<Categorycharacters[]>([]);
+  const [chapters, setChapters] = useState<ExtendedCategorycharacters[]>([]);
   const navigate = useNavigate();
 
   const handleGoToDetails = useCallback(
-    (chapter: Categorycharacters) => {
+    (chapter: ExtendedCategorycharacters) => {
       navigate(`/detailscharacters/${chapter.id}`);
     },
     [navigate]
   );
 
   const handleToggleFavorites = useCallback(
-    (chapter: Categorycharacters) => {
+    (chapter: ExtendedCategorycharacters) => {
       toggleFavorites(chapter);
+      setChapters((prevChapters) =>
+        prevChapters.map((prevChapter) =>
+          prevChapter.id === chapter.id
+            ? { ...prevChapter, isFavorite: !prevChapter.isFavorite }
+            : prevChapter
+        )
+      );
     },
     []
   );
@@ -36,7 +46,11 @@ const Card: FC<Props> = () => {
   useEffect(() => {
     const fetchData = async () => {
       const chaptersData = await RYMChapters();
-      setChapters(chaptersData);
+      const chaptersWithFavorites = chaptersData.map((chapter) => ({
+        ...chapter,
+        isFavorite: false,
+      }));
+      setChapters(chaptersWithFavorites);
     };
 
     fetchData();
@@ -53,7 +67,9 @@ const Card: FC<Props> = () => {
           <ContainerButton>
             <Button onClick={() => handleGoToDetails(chapter)}>Details</Button>
             <Button>Remove</Button>
-            <Button onClick={() => handleToggleFavorites(chapter)}>Favorites</Button>
+            <Button onClick={() => handleToggleFavorites(chapter)}>
+              {chapter.isFavorite ? 'Remove Favorite' : 'Add Favorite'}
+            </Button>
           </ContainerButton>
         </Content>
       ))}
