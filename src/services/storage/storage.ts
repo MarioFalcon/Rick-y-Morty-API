@@ -39,7 +39,8 @@ export const setCachedEpisodes = (categories: CategoryEpisodes[]) => {
 export const resetCache = () => {
   window.localStorage.removeItem(CHAPTERS_CATEGORY)
   window.localStorage.removeItem(EPISODES_CATEGORY)
-  window.localStorage.removeItem(USER_FAV)
+  window.localStorage.removeItem(USER_FAV_CHARACTERS)
+  window.localStorage.removeItem(USER_FAV_EPISODES)
 }
 
 
