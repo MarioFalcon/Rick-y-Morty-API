@@ -4,10 +4,10 @@ export const Gif = styled.img`
   width: 60px;
   z-index: 5;
   position: absolute;
-  left: 36px;
-  filter: brightness(150%);
-  background-color: transparent;
-  border-radius: 100px;
+  left: 40px;
+  
+
+ 
 `;
 
 export const Container = styled.header`

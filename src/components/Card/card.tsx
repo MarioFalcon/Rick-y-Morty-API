@@ -1,7 +1,9 @@
-import { FC, memo, useState, useCallback, useEffect } from 'react'
-import { Categorycharacters } from '../../models/character'
-import { useNavigate } from 'react-router-dom'
-import { RYMChapters } from '../../services/rym/rym'
+import { FC, memo, useState, useCallback, useEffect } from 'react';
+import {toggleFavorites } from '../../services/storage/storage';
+import { useNavigate } from 'react-router-dom';
+import { RYMChapters } from '../../services/rym/rym';
+import type { Props } from './types';
+import { Categorycharacters } from '../../models/character';
 import {
   Button,
   Container,
@@ -10,28 +12,35 @@ import {
   Image,
   Title,
   ContainerButton,
-} from './cardstyles'
+} from './cardstyles';
 
-const Card: FC = () => {
-  
-  const navigate = useNavigate()
+
+const Card: FC<Props> = () => {
+  const [chapters, setChapters] = useState<Categorycharacters[]>([]);
+  const navigate = useNavigate();
+
   const handleGoToDetails = useCallback(
     (chapter: Categorycharacters) => {
-      navigate(`/detailscharacters/${chapter.id}`)
+      navigate(`/detailscharacters/${chapter.id}`);
     },
     [navigate]
-  )
+  );
 
-  const [chapters, setChapters] = useState<Categorycharacters[]>([])
+  const handleToggleFavorites = useCallback(
+    (chapter: Categorycharacters) => {
+      toggleFavorites(chapter);
+    },
+    []
+  );
 
   useEffect(() => {
     const fetchData = async () => {
-      const chaptersData = await RYMChapters()
-      setChapters(chaptersData)
-    }
+      const chaptersData = await RYMChapters();
+      setChapters(chaptersData);
+    };
 
-    fetchData()
-  }, [])
+    fetchData();
+  }, []);
 
   return (
     <Container>
@@ -44,12 +53,12 @@ const Card: FC = () => {
           <ContainerButton>
             <Button onClick={() => handleGoToDetails(chapter)}>Details</Button>
             <Button>Remove</Button>
-            <Button>Favorite</Button>
+            <Button onClick={() => handleToggleFavorites(chapter)}>Favorites</Button>
           </ContainerButton>
         </Content>
       ))}
     </Container>
-  )
-}
+  );
+};
 
-export default memo(Card)
+export default memo(Card);
