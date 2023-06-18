@@ -7,4 +7,5 @@ export type Props = {
   name?: string
   image?: string
   onLogout?: () => void
+   isFavorite?: boolean; 
 }
