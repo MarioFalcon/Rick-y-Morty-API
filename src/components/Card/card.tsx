@@ -1,9 +1,9 @@
-import { FC, memo, useState, useCallback, useEffect } from 'react';
-import { toggleFavorites } from '../../services/storage/storage';
-import { useNavigate } from 'react-router-dom';
-import { RYMChapters } from '../../services/rym/rym';
-import type { Props } from './types';
-import { Categorycharacters } from '../../models/character';
+import { FC, memo, useState, useCallback, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { toggleFavorites } from '../../services/storage/storage'
+import { RYMChapters } from '../../services/rym/rym'
+import type { Props } from './types'
+import { Categorycharacters } from '../../models/character'
 import {
   Button,
   Container,
@@ -12,49 +12,49 @@ import {
   Image,
   Title,
   ContainerButton,
-} from './cardstyles';
+} from './cardstyles'
 
 interface ExtendedCategorycharacters extends Categorycharacters {
-  isFavorite: boolean;
+  isFavorite: boolean
 }
 
 const Card: FC<Props> = () => {
-  const [chapters, setChapters] = useState<ExtendedCategorycharacters[]>([]);
-  const navigate = useNavigate();
+  const [chapters, setChapters] = useState<ExtendedCategorycharacters[]>([])
+  const navigate = useNavigate()
 
   const handleGoToDetails = useCallback(
     (chapter: ExtendedCategorycharacters) => {
-      navigate(`/detailscharacters/${chapter.id}`);
+      navigate(`/detailscharacters/${chapter.id}`)
     },
     [navigate]
-  );
+  )
 
   const handleToggleFavorites = useCallback(
     (chapter: ExtendedCategorycharacters) => {
-      toggleFavorites(chapter);
+      toggleFavorites(chapter)
       setChapters((prevChapters) =>
         prevChapters.map((prevChapter) =>
           prevChapter.id === chapter.id
             ? { ...prevChapter, isFavorite: !prevChapter.isFavorite }
             : prevChapter
         )
-      );
+      )
     },
     []
-  );
+  )
 
   useEffect(() => {
     const fetchData = async () => {
-      const chaptersData = await RYMChapters();
+      const chaptersData = await RYMChapters()
       const chaptersWithFavorites = chaptersData.map((chapter) => ({
         ...chapter,
         isFavorite: false,
-      }));
-      setChapters(chaptersWithFavorites);
-    };
+      }))
+      setChapters(chaptersWithFavorites)
+    }
 
-    fetchData();
-  }, []);
+    fetchData()
+  }, [])
 
   return (
     <Container>
@@ -74,7 +74,7 @@ const Card: FC<Props> = () => {
         </Content>
       ))}
     </Container>
-  );
-};
+  )
+}
 
-export default memo(Card);
+export default memo(Card)

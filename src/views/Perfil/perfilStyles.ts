@@ -1,8 +1,5 @@
 import styled from 'styled-components'
 
-
-
-
 export const PerfilContainer = styled.div`
   transform: scale(0.8);
   color: white;
@@ -45,7 +42,6 @@ export const InfoItem = styled.p`
   margin-bottom: 30px;
   text-shadow: 0px 0px 20px rgba(81, 185, 249, 1);
   text-align: center;
-  
 `
 
 export const AdditionalContainer = styled.div`
@@ -94,11 +90,7 @@ export const Back = styled.button`
   }
 `
 
-
-
-
 export const Container = styled.div`
-
   margin-top: 0px;
   margin-bottom: 90px;
   margin-left: 100px;

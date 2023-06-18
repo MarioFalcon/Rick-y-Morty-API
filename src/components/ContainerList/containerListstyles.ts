@@ -14,7 +14,7 @@ export const Container = styled.div`
   margin-bottom: 100px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: 120px; 
+  grid-gap: 120px;
   justify-items: center;
 
   @media screen and (max-width: 768px) {
@@ -35,9 +35,7 @@ export const ImageContainer = styled.div`
   overflow: hidden;
 `
 
-export const Image = styled.img`
-
-`
+export const Image = styled.img``
 
 export const Title = styled.div`
   color: #ffffff;
@@ -76,6 +74,4 @@ export const DashboardCards = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  
 `
-

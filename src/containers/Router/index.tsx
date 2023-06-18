@@ -1,4 +1,11 @@
 import { FC } from 'react'
+import {
+  BrowserRouter,
+  Navigate,
+  Route,
+  Routes,
+  useLocation,
+} from 'react-router-dom'
 import Login from '../../views/Auth/Login/index'
 import Signup from '../../views/Auth/Signup/index'
 import Welcome from '../../views/Welcome/welcome'
@@ -8,14 +15,7 @@ import Episodes from '../../views/Episodes/episodes'
 import Detailscharacters from '../../views/DetailsCharacter/detailscharacter'
 import Detailsepisodes from '../../views/DetailsEpisodes/detailsepisodes'
 import Detailsperfil from '../../views/Perfil/perfil'
-import {
-  BrowserRouter,
-  Navigate,
-  Route,
-  Routes,
-  useLocation,
-} from 'react-router-dom'
-import { getToken } from '../../services/storage/storage'
+import { getToken } from '../../services/storage/token'
 import { Props } from './types'
 
 const Router: FC<Props> = ({ onLogin, onSignup }) => {
@@ -85,9 +85,13 @@ const Router: FC<Props> = ({ onLogin, onSignup }) => {
           element={
             <ProtectedRoutes>
               <>
-                <Characters name={''} image={''} onLogout={function (): void {
-                  throw new Error('Function not implemented.')
-                } }/>
+                <Characters
+                  name={''}
+                  image={''}
+                  onLogout={function (): void {
+                    throw new Error('Function not implemented.')
+                  }}
+                />
               </>
             </ProtectedRoutes>
           }

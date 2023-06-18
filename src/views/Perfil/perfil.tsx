@@ -1,4 +1,5 @@
 import { FC, memo, useCallback } from 'react'
+import { useNavigate } from 'react-router-dom'
 import {
   PerfilContainer,
   Avatar,
@@ -11,12 +12,10 @@ import {
   ImageContainer,
   Back,
 } from './perfilStyles'
-
 import { getUserInfo } from '../../services/storage/user'
 import Header from '../../components/Header/header'
 import Footer from '../../components/Footer/footer'
 import VideoBackground from '../../components/VideoBackground/videoBackground'
-import { useNavigate } from 'react-router-dom'
 import { getFavorites } from '../../services/storage/storage'
 
 const Perfil: FC = () => {
@@ -37,11 +36,9 @@ const Perfil: FC = () => {
       <PerfilContainer>
         <Avatar />
         <InfoContainer>
+          <InfoItem>{user[0].email}</InfoItem>
           <InfoItem>
-            {user[0].email}
-          </InfoItem>
-          <InfoItem>
-            <b>Welcome to your profile  </b>
+            <b>Welcome to your profile </b>
             {user[0].displayName}
           </InfoItem>
         </InfoContainer>

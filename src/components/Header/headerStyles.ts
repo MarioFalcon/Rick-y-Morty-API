@@ -5,10 +5,7 @@ export const Gif = styled.img`
   z-index: 5;
   position: absolute;
   left: 40px;
-  
-
- 
-`;
+`
 
 export const Container = styled.header`
   background: rgba(17, 17, 17, 0.7);

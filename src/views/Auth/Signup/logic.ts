@@ -1,7 +1,7 @@
 import { useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { signup } from '../../../services/firebase/auth'
-import { setToken } from '../../../services/storage/storage'
+import { setToken } from '../../../services/storage/token'
 import { setUserInfo } from '../../../services/storage/user'
 import { updateProfile } from 'firebase/auth'
 import { Props } from './types'
