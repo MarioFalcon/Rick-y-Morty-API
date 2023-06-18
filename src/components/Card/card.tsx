@@ -1,9 +1,9 @@
-import { FC, memo, useState, useCallback, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { toggleFavorites } from '../../services/storage/storage';
-import { RYMChapters } from '../../services/rym/rym';
-import type { Props } from './types';
-import { Categorycharacters } from '../../models/character';
+import { FC, memo, useState, useCallback, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { getFavoritesCharacters, toggleFavoritesCharacter } from '../../services/storage/storage'
+import { RYMChapters } from '../../services/rym/rym'
+import type { Props } from './types'
+import { Categorycharacters } from '../../models/character'
 import {
   Button,
   Container,
@@ -31,7 +31,9 @@ const Card: FC<Props> = ({onRemove}) => {
 
   const handleToggleFavorites = useCallback(
     (chapter: ExtendedCategorycharacters) => {
-      toggleFavorites(chapter);
+
+      toggleFavoritesCharacter(chapter)
+
       setChapters((prevChapters) =>
         prevChapters.map((prevChapter) =>
           prevChapter.id === chapter.id
@@ -49,9 +51,21 @@ const Card: FC<Props> = ({onRemove}) => {
       const chaptersWithFavorites = chaptersData.map((chapter) => ({
         ...chapter,
         isFavorite: false,
-      }));
-      setChapters(chaptersWithFavorites);
-    };
+
+      }))
+
+
+      const storedFavorites = getFavoritesCharacters()
+      const updatedChapters = chaptersWithFavorites.map((chapter) => ({
+        ...chapter,
+        isFavorite: storedFavorites.some((fav) => fav.id === chapter.id),
+      }))
+
+
+
+      setChapters(updatedChapters)
+    }
+
 
     fetchData();
   }, []);

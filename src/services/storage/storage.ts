@@ -3,7 +3,8 @@ import { CategoryEpisodes } from '../../models/episodes'
 
 const CHAPTERS_CATEGORY = 'chaptersLists'
 const EPISODES_CATEGORY = 'episodesLists'
-const USER_FAV = 'userFav'
+const USER_FAV_CHARACTERS = 'userFavCharacters'
+const USER_FAV_EPISODES = 'userFavEpisodes'
 
 export const getCachedChapters = (): Categorycharacters[] => {
   const response = window.localStorage.getItem(CHAPTERS_CATEGORY)
@@ -41,25 +42,54 @@ export const resetCache = () => {
   window.localStorage.removeItem(USER_FAV)
 }
 
-export const toggleFavorites = (chapter: Categorycharacters) => {
-  const favorites = getFavorites()
 
-  const index = favorites.findIndex((item) => item.id === chapter.id)
+export const toggleFavoritesCharacter = (character: Categorycharacters) => {
+  const favoritesCharacters = getFavoritesCharacters()
+
+  const index = favoritesCharacters.findIndex((item) => item.id === character.id)
 
   if (index !== -1) {
-    favorites.splice(index, 1)
+    favoritesCharacters.splice(index, 1)
   } else {
-    favorites.push(chapter)
+    favoritesCharacters.push(character)
   }
 
-  setFavorites(favorites)
+  setFavoritesCharacters(favoritesCharacters)
 }
 
-export const getFavorites = (): Categorycharacters[] => {
-  const response = window.localStorage.getItem(USER_FAV)
+export const getFavoritesCharacters = (): Categorycharacters[] => {
+  const response = window.localStorage.getItem(USER_FAV_CHARACTERS)
   return response ? JSON.parse(response) : []
 }
 
-export const setFavorites = (favorites: Categorycharacters[]) => {
-  window.localStorage.setItem(USER_FAV, JSON.stringify(favorites))
+export const setFavoritesCharacters = (favoritesCharacters: Categorycharacters[]) => {
+  window.localStorage.setItem(USER_FAV_CHARACTERS, JSON.stringify(favoritesCharacters))
+}
+
+
+
+
+
+
+export const toggleFavoritesEpisode = (episode: CategoryEpisodes) => {
+  const favoritesEpisodes = getFavoritesEpisodes()
+
+  const index = favoritesEpisodes.findIndex((item) => item.id === episode.id)
+
+  if (index !== -1) {
+    favoritesEpisodes.splice(index, 1)
+  } else {
+    favoritesEpisodes.push(episode)
+  }
+
+  setFavoritesEpisodes(favoritesEpisodes)
+}
+
+export const getFavoritesEpisodes = (): CategoryEpisodes[] => {
+  const response = window.localStorage.getItem(USER_FAV_EPISODES)
+  return response ? JSON.parse(response) : []
+}
+
+export const setFavoritesEpisodes = (favoritesEpisodes: CategoryEpisodes[]) => {
+  window.localStorage.setItem(USER_FAV_EPISODES, JSON.stringify(favoritesEpisodes))
 }

@@ -11,17 +11,22 @@ import {
   Image,
   ImageContainer,
   Back,
+  Titlecharacters,
+  DetailsTitle,
+  DetailsSpecies,
+  DetailsContent,
 } from './perfilStyles'
 import { getUserInfo } from '../../services/storage/user'
 import Header from '../../components/Header/header'
 import Footer from '../../components/Footer/footer'
 import VideoBackground from '../../components/VideoBackground/videoBackground'
-import { getFavorites } from '../../services/storage/storage'
+import { getFavoritesCharacters, getFavoritesEpisodes } from '../../services/storage/storage'
 
 const Perfil: FC = () => {
   const user = getUserInfo()
 
-  const cardFavorites = getFavorites()
+  const cardFavorites = getFavoritesCharacters()
+  const cardFavoritesEpisodes = getFavoritesEpisodes()
 
   const navigate = useNavigate()
   const handleGoToBack = useCallback(() => {
@@ -32,7 +37,7 @@ const Perfil: FC = () => {
     <>
       <Back onClick={handleGoToBack}>Back</Back>
       <Header onLogout={function (): void {}} />
-      <VideoBackground videoSrc="/dragonattack.mp4" />
+      <VideoBackground videoSrc="/realism.mp4" />
       <PerfilContainer>
         <Avatar />
         <InfoContainer>
@@ -44,6 +49,10 @@ const Perfil: FC = () => {
         </InfoContainer>
       </PerfilContainer>
 
+
+
+
+      <Titlecharacters>your favorite characters</Titlecharacters>
       <Container>
         {cardFavorites.map((chapter) => (
           <Content key={chapter.id}>
@@ -54,6 +63,21 @@ const Perfil: FC = () => {
           </Content>
         ))}
       </Container>
+
+
+
+
+      <Titlecharacters>your favorite episodes</Titlecharacters>
+      {cardFavoritesEpisodes.map((episode) => (
+      <DetailsContent>
+      
+            <DetailsTitle>{episode.name}</DetailsTitle>
+            <DetailsSpecies>{episode.id}</DetailsSpecies>
+            <DetailsSpecies>{episode.air_date}</DetailsSpecies>
+            <DetailsSpecies>{episode.episode}</DetailsSpecies>
+         
+      </DetailsContent>
+         ))}
       <Footer />
     </>
   )
