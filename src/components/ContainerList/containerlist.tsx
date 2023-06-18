@@ -1,6 +1,6 @@
-import { FC, memo, useState, useEffect,useCallback } from 'react'
-import { CategoryEpisodes } from '../../models/episodes'
+import { FC, memo, useState, useEffect, useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { CategoryEpisodes } from '../../models/episodes'
 import { RYMEpisodes } from '../../services/rym/rym'
 import {
   Button,
@@ -12,7 +12,6 @@ import {
 } from './containerListstyles'
 
 const ContainerList: FC = () => {
-
   const navigate = useNavigate()
   const handleGoToDetails = useCallback(
     (episode: CategoryEpisodes) => {
@@ -32,21 +31,18 @@ const ContainerList: FC = () => {
     fetchData()
   }, [])
 
-
   return (
     <Container>
       {episodes.map((episode) => (
         <Content key={episode.name}>
           <Title>{episode.id}</Title>
           <Title>{episode.name}</Title>
-          
-          <ImageContainer>
-            { }
-          </ImageContainer>
+
+          <ImageContainer>{}</ImageContainer>
           <ContainerButton>
-          <Button onClick={() => handleGoToDetails(episode)}>Details</Button>
-          <Button>Remove</Button>
-          <Button>Favorite</Button>
+            <Button onClick={() => handleGoToDetails(episode)}>Details</Button>
+            <Button>Remove</Button>
+            <Button>Favorite</Button>
           </ContainerButton>
         </Content>
       ))}
@@ -55,4 +51,3 @@ const ContainerList: FC = () => {
 }
 
 export default memo(ContainerList)
-

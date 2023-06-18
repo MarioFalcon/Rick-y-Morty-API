@@ -8,6 +8,7 @@ export const ContainerButton = styled.div`
   align-items: center;
   flex-direction: row;
 `
+
 export const Container = styled.div`
   margin-top: 90px;
   margin-bottom: 90px;
@@ -27,6 +28,7 @@ export const Content = styled.div`
   flex-direction: column;
   align-items: center;
 `
+
 export const ImageContainer = styled.div`
   width: 250px;
   height: 250px;
@@ -35,18 +37,17 @@ export const ImageContainer = styled.div`
 `
 
 export const FavoriteIcon = styled.div`
-width: 550px;
-
+  width: 550px;
 `
-
 
 export const Image = styled.img`
-   width: 100%;
+  width: 100%;
   height: 100%;
   object-fit: cover;
-  position: relative; 
+  position: relative;
   z-index: -1;
 `
+
 export const Title = styled.div`
   color: #ffffff;
   font-weight: bold;
@@ -60,6 +61,7 @@ export const Title = styled.div`
     font-size: 18px;
   }
 `
+
 export const Button = styled(DefaultButton)`
   background-color: transparent;
   margin: 5px;
@@ -80,15 +82,15 @@ export const Button = styled(DefaultButton)`
     box-shadow: 0 0 5px #3f51b5;
   }
 `
+
 export const DashboardCards = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
 `
 
-
 export const GifImage = styled.img`
   width: 290px;
-  position: absolute; 
-  z-index: 8; 
-`;
+  position: absolute;
+  z-index: 8;
+`

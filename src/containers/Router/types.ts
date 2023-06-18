@@ -1,4 +1,4 @@
 export type Props = {
-    onLogin: () => void
-    onSignup: () => void
-  }
+  onLogin: () => void
+  onSignup: () => void
+}

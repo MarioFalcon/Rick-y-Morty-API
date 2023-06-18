@@ -1,10 +1,10 @@
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes } from 'styled-components'
 
 const blinkAnimation = keyframes`
   0% { color: white; }
   50% { color: black; }
   100% { color: white; }
-`;
+`
 
 export const ButtonStart = styled.button`
   background-color: transparent;
@@ -21,13 +21,12 @@ export const ButtonStart = styled.button`
   min-width: 135px;
 
   &:hover {
-   color: black;
-   
+    color: black;
   }
 
   &:focus {
     outline: none;
-  
+
     text-shadow: 0px 0px 10px white;
   }
 `

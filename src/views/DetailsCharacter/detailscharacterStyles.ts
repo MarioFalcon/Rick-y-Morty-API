@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 
-
 export const DetailsTitle = styled.h1`
   color: #ffffff;
   font-size: 55px;
@@ -24,15 +23,14 @@ export const ImageContainer = styled.div`
   align-items: center;
   overflow: hidden;
   height: 100%;
-  border-radius: 80px; 
-  
-`;
+  border-radius: 80px;
+`
 
 export const Image = styled.img`
   width: 30%;
   height: auto;
   object-fit: cover;
-`;
+`
 
 export const DetailsContainer = styled.div`
   display: flex;
@@ -43,12 +41,11 @@ export const DetailsContainer = styled.div`
 `
 
 export const DetailsContent = styled.div`
- 
-  width:  150vh;
+  width: 150vh;
   background-color: rgba(226, 226, 226, 0.1);
   box-shadow: 0px 0px 10px rgba(666, 666, 666, 0.4);
 
-  overflow-y: auto; 
+  overflow-y: auto;
 `
 
 export const ButtonContainer = styled.div`
@@ -56,7 +53,7 @@ export const ButtonContainer = styled.div`
   justify-content: center;
   align-items: center;
   margin-top: 60px;
-margin-bottom: 70px;
+  margin-bottom: 70px;
   @media (max-width: 768px) {
     flex-wrap: wrap;
   }

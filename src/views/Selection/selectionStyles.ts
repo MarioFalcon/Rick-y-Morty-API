@@ -60,14 +60,11 @@ export const RightButton = styled.button`
 
   &:hover::after {
     opacity: 1;
-    
-    
   }
 
   @media screen and (max-width: 768px) {
     text-align: center;
   }
-
 `
 
 export const LeftButton = styled.button`
@@ -101,22 +98,18 @@ export const LeftButton = styled.button`
 
   &:hover::after {
     opacity: 1;
-    
   }
 
   @media screen and (max-width: 768px) {
     text-align: center;
   }
-
 `
 export const ButtonContainer = styled.div`
-
-
   @media screen and (max-width: 768px) {
     flex-direction: column;
     display: flex;
-  justify-content: center;
-  margin-top: 20px;
+    justify-content: center;
+    margin-top: 20px;
     align-items: center;
   }
 `

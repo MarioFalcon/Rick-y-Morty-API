@@ -1,4 +1,5 @@
 import { FC, memo, useCallback, useEffect, useState } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
 import {
   DetailsContainer,
   DetailsContent,
@@ -10,9 +11,7 @@ import {
   Image,
   ImageContainer,
 } from './detailsepisodesStyles'
-
 import Footer from '../../components/Footer/footer'
-import { useNavigate, useParams } from 'react-router-dom'
 import { RYMEpisodes } from '../../services/rym/rym'
 import VideoBackground from '../../components/VideoBackground/videoBackground'
 import { CategoryEpisodes } from '../../models/episodes'
@@ -47,20 +46,18 @@ const DetailsEpisodes: FC = () => {
           <>
             <DetailsTitle>{episode.name}</DetailsTitle>
             <ImageContainer>
-  {episode.characters.map((character) => (
-    <Image src={character.image} />
-  ))}
-</ImageContainer>
+              {episode.characters.map((character) => (
+                <Image src={character.image} />
+              ))}
+            </ImageContainer>
             <DetailsSpecies>{episode.id}</DetailsSpecies>
             <DetailsSpecies>{episode.air_date}</DetailsSpecies>
             <DetailsSpecies>{episode.episode}</DetailsSpecies>
-            
           </>
         )}
         <ButtonContainer>
           <ButtonBack onClick={handleGoBack}>Back</ButtonBack>
           <Buttoneditar>Edit</Buttoneditar>
-
         </ButtonContainer>
       </DetailsContent>
       <Footer />
