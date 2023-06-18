@@ -30,7 +30,7 @@ export const Content = styled.div`
 `
 
 export const ImageContainer = styled.div`
-  width: 310px;
+  width: 330px;
   border-radius: 50%;
   overflow: hidden;
 `

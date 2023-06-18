@@ -1,6 +1,6 @@
 import { FC, memo, useState, useCallback, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { toggleFavoritesCharacter } from '../../services/storage/storage'
+import { getFavoritesCharacters, toggleFavoritesCharacter } from '../../services/storage/storage'
 import { RYMChapters } from '../../services/rym/rym'
 import type { Props } from './types'
 import { Categorycharacters } from '../../models/character'
@@ -49,7 +49,17 @@ const Card: FC<Props> = () => {
         ...chapter,
         isFavorite: false,
       }))
-      setChapters(chaptersWithFavorites)
+
+
+      const storedFavorites = getFavoritesCharacters()
+      const updatedChapters = chaptersWithFavorites.map((chapter) => ({
+        ...chapter,
+        isFavorite: storedFavorites.some((fav) => fav.id === chapter.id),
+      }))
+
+
+
+      setChapters(updatedChapters)
     }
 
     fetchData()
