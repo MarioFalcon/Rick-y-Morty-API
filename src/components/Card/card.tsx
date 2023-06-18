@@ -1,6 +1,6 @@
 import { FC, memo, useState, useCallback, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { toggleFavorites } from '../../services/storage/storage'
+import { toggleFavoritesCharacter } from '../../services/storage/storage'
 import { RYMChapters } from '../../services/rym/rym'
 import type { Props } from './types'
 import { Categorycharacters } from '../../models/character'
@@ -21,7 +21,6 @@ interface ExtendedCategorycharacters extends Categorycharacters {
 const Card: FC<Props> = () => {
   const [chapters, setChapters] = useState<ExtendedCategorycharacters[]>([])
   const navigate = useNavigate()
-
   const handleGoToDetails = useCallback(
     (chapter: ExtendedCategorycharacters) => {
       navigate(`/detailscharacters/${chapter.id}`)
@@ -31,7 +30,7 @@ const Card: FC<Props> = () => {
 
   const handleToggleFavorites = useCallback(
     (chapter: ExtendedCategorycharacters) => {
-      toggleFavorites(chapter)
+      toggleFavoritesCharacter(chapter)
       setChapters((prevChapters) =>
         prevChapters.map((prevChapter) =>
           prevChapter.id === chapter.id

@@ -1,7 +1,9 @@
 import { FC, memo, useState, useEffect, useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { CategoryEpisodes } from '../../models/episodes'
+import { toggleFavoritesEpisode } from '../../services/storage/storage'
 import { RYMEpisodes } from '../../services/rym/rym'
+import type { Props } from './types'
+import { CategoryEpisodes } from '../../models/episodes'
 import {
   Button,
   Container,
@@ -11,7 +13,12 @@ import {
   ContainerButton,
 } from './containerListstyles'
 
-const ContainerList: FC = () => {
+interface ExtendedCategoryEpisodes extends CategoryEpisodes {
+  isFav: boolean
+}
+
+const ContainerList: FC<Props> = () => {
+  const [episodes, setEpisodes] = useState<CategoryEpisodes[]>([])
   const navigate = useNavigate()
   const handleGoToDetails = useCallback(
     (episode: CategoryEpisodes) => {
@@ -20,12 +27,28 @@ const ContainerList: FC = () => {
     [navigate]
   )
 
-  const [episodes, setEpisodes] = useState<CategoryEpisodes[]>([])
+  const handleToggleFavorites = useCallback(
+    (episode: ExtendedCategoryEpisodes) => {
+      toggleFavoritesEpisode(episode)
+      setEpisodes((prevEpisodes) =>
+        prevEpisodes.map((prevEpisodes) =>
+          prevEpisodes.id === episode.id
+            ? { ...prevEpisodes, isFavorite: !prevEpisodes.isFav }
+            : prevEpisodes
+        )
+      )
+    },
+    []
+  )
 
   useEffect(() => {
     const fetchData = async () => {
       const episdoesData = await RYMEpisodes()
-      setEpisodes(episdoesData)
+      const episodesWithFavorites = episdoesData.map((episode) => ({
+        ...episode,
+        isFavorite: false,
+      }))
+      setEpisodes(episodesWithFavorites)
     }
 
     fetchData()
@@ -42,7 +65,9 @@ const ContainerList: FC = () => {
           <ContainerButton>
             <Button onClick={() => handleGoToDetails(episode)}>Details</Button>
             <Button>Remove</Button>
-            <Button>Favorite</Button>
+            <Button onClick={() => handleToggleFavorites(episode)}>
+              {episode.isFav ? 'Remove Favorite' : 'Add Favorite'}
+            </Button>
           </ContainerButton>
         </Content>
       ))}

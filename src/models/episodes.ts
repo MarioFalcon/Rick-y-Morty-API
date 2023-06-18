@@ -13,6 +13,8 @@ export type RYMResultEpisodes = {
   episode: string
   characters: RYMCharacter[]
   results: RYMResultEpisodes[]
+  isFavorite?: boolean
+  
 }
 
 export const RYMNormalizeEpisodes = (input: RYMResultEpisodes) => ({
@@ -21,6 +23,8 @@ export const RYMNormalizeEpisodes = (input: RYMResultEpisodes) => ({
   air_date: input?.air_date || '',
   episode: input?.episode || '',
   characters: input?.characters || [],
+  isFav: false,
+  
 })
 
 export type CategoryEpisodes = ReturnType<typeof RYMNormalizeEpisodes>
