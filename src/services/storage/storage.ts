@@ -15,6 +15,18 @@ export const setCachedChapters = (categories: Categorycharacters[]) => {
   window.localStorage.setItem(CHAPTERS_CATEGORY, JSON.stringify(categories))
 }
 
+export const removeCachedChapters = (chapter: Categorycharacters) => {
+  const currentCachedChapters = getCachedChapters()
+  const existingIndex = currentCachedChapters.findIndex(
+    (item) => item.id === chapter.id
+  )
+  if (existingIndex !== -1) {
+    currentCachedChapters.splice(existingIndex, 1)
+  }
+  setCachedChapters(currentCachedChapters)
+  return currentCachedChapters
+}
+
 export const getCachedEpisodes = (): CategoryEpisodes[] => {
   const response = window.localStorage.getItem(EPISODES_CATEGORY)
   return response ? JSON.parse(response) : []
@@ -24,11 +36,11 @@ export const setCachedEpisodes = (categories: CategoryEpisodes[]) => {
   window.localStorage.setItem(EPISODES_CATEGORY, JSON.stringify(categories))
 }
 
-
-
-
-
-
+export const resetCache = () => {
+  window.localStorage.removeItem(CHAPTERS_CATEGORY)
+  window.localStorage.removeItem(EPISODES_CATEGORY)
+  window.localStorage.removeItem(USER_FAV)
+}
 
 
 export const toggleFavoritesCharacter = (character: Categorycharacters) => {

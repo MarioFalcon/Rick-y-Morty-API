@@ -12,42 +12,46 @@ import {
   Image,
   Title,
   ContainerButton,
-} from './cardstyles'
+} from './cardstyles';
 
 interface ExtendedCategorycharacters extends Categorycharacters {
-  isFavorite: boolean
+  isFavorite: boolean;
 }
 
-const Card: FC<Props> = () => {
-  const [chapters, setChapters] = useState<ExtendedCategorycharacters[]>([])
-  const navigate = useNavigate()
+const Card: FC<Props> = ({onRemove}) => {
+  const [chapters, setChapters] = useState<ExtendedCategorycharacters[]>([]);
+  const navigate = useNavigate();
+
   const handleGoToDetails = useCallback(
     (chapter: ExtendedCategorycharacters) => {
-      navigate(`/detailscharacters/${chapter.id}`)
+      navigate(`/detailscharacters/${chapter.id}`);
     },
     [navigate]
-  )
+  );
 
   const handleToggleFavorites = useCallback(
     (chapter: ExtendedCategorycharacters) => {
+
       toggleFavoritesCharacter(chapter)
+
       setChapters((prevChapters) =>
         prevChapters.map((prevChapter) =>
           prevChapter.id === chapter.id
             ? { ...prevChapter, isFavorite: !prevChapter.isFavorite }
             : prevChapter
         )
-      )
+      );
     },
     []
-  )
+  );
 
   useEffect(() => {
     const fetchData = async () => {
-      const chaptersData = await RYMChapters()
+      const chaptersData = await RYMChapters();
       const chaptersWithFavorites = chaptersData.map((chapter) => ({
         ...chapter,
         isFavorite: false,
+
       }))
 
 
@@ -62,8 +66,9 @@ const Card: FC<Props> = () => {
       setChapters(updatedChapters)
     }
 
-    fetchData()
-  }, [])
+
+    fetchData();
+  }, []);
 
   return (
     <Container>
@@ -75,7 +80,7 @@ const Card: FC<Props> = () => {
           </ImageContainer>
           <ContainerButton>
             <Button onClick={() => handleGoToDetails(chapter)}>Details</Button>
-            <Button>Remove</Button>
+            <Button onClick={() => onRemove?.(chapter)}>Remove</Button>
             <Button onClick={() => handleToggleFavorites(chapter)}>
               {chapter.isFavorite ? 'Remove Favorite' : 'Add Favorite'}
             </Button>
@@ -83,7 +88,7 @@ const Card: FC<Props> = () => {
         </Content>
       ))}
     </Container>
-  )
-}
+  );
+};
 
-export default memo(Card)
+export default memo(Card);

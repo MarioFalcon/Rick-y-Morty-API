@@ -85,13 +85,9 @@ const Router: FC<Props> = ({ onLogin, onSignup }) => {
           element={
             <ProtectedRoutes>
               <>
-                <Characters
-                  name={''}
-                  image={''}
-                  onLogout={function (): void {
-                    throw new Error('Function not implemented.')
-                  }}
-                />
+                <Characters name={''} image={''} onLogout={function (): void {
+                  throw new Error('Function not implemented.')
+                } }/>
               </>
             </ProtectedRoutes>
           }
