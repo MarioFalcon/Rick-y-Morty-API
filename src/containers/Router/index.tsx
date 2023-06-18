@@ -5,12 +5,13 @@ import Welcome from '../../views/Welcome/welcome'
 import Selection from '../../views/Selection/selection'
 import Characters from '../../views/Characters/characters'
 import Episodes from '../../views/Episodes/episodes'
+import Detailscharacters from '../../views/DetailsCharacter/detailscharacter'
+import Detailsepisodes from '../../views/DetailsEpisodes/detailsepisodes'
+import Detailsperfil from '../../views/Perfil/perfil' 
 import { BrowserRouter, Navigate, Route, Routes, useLocation } from 'react-router-dom'
 import { getToken } from '../../services/storage/storage'
 import { Props } from './types'
-import Detailscharacters from '../../views/DetailsCharacter/detailscharacter'
-import Detailsepisodes from '../../views/DetailsEpisodes/detailsepisodes'
-import Detailsperfil from '../../views/Perfil/perfil'
+
 
 
 

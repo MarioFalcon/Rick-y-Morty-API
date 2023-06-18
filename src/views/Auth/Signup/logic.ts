@@ -2,9 +2,9 @@ import { useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { signup } from '../../../services/firebase/auth'
 import { setToken } from '../../../services/storage/storage'
-import { Props } from './types'
 import { setUserInfo } from '../../../services/storage/user'
 import { updateProfile } from 'firebase/auth'
+import { Props } from './types'
 
 const useLogic = (onSignup: Props['onSignup']) => {
   const navigate = useNavigate()
@@ -20,12 +20,11 @@ const useLogic = (onSignup: Props['onSignup']) => {
         const user = await signup(values.email, values.password)
         console.log(user)
         if (user) {
-          const token = await user.getIdToken()
-          const userInfo = user.providerData
-          updateProfile(user, {
+          await updateProfile(user, {
             displayName: values.displayName,
           })
-          setUserInfo(userInfo)
+          setUserInfo(user.providerData)
+          const token = await user.getIdToken()
           setToken(token)
           onSignup()
           navigate('/selection')
@@ -36,7 +35,6 @@ const useLogic = (onSignup: Props['onSignup']) => {
     },
     [navigate, onSignup]
   )
-
   return {
     handleOnSubmit,
   }
