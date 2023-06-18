@@ -92,7 +92,7 @@ export const Back = styled.button`
 
 export const Container = styled.div`
   margin-top: 0px;
-  margin-bottom: 90px;
+  margin-bottom: 150px;
   margin-left: 100px;
   margin-right: 100px;
   display: grid;
@@ -138,4 +138,50 @@ export const DashboardCards = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+`
+
+
+
+
+
+export const Titlecharacters = styled.div`
+  font-size: 4vw;
+  margin-left: 200px;
+  margin-bottom: 50px;
+  margin-top: 40px;
+  color: white;
+  width: calc(80% - 20px);
+  text-align: center;
+  text-shadow: 0px 0px 8px lime;
+  font-family: 'get_schwifty';
+`;
+
+
+export const DetailsTitle = styled.h1`
+  color: #ffffff;
+  font-size: 45px;
+  margin-top: 70px;
+  margin-bottom: 10px;
+  text-align: center;
+  text-shadow: 0px 0px 20px rgba(81, 185, 249, 1);
+`
+
+
+export const DetailsSpecies = styled.p`
+  color: #ffffff;
+  font-size: 35px;
+  margin-bottom: 30px;
+  text-align: center;
+  text-shadow: 0px 0px 0px rgba(81, 185, 249, 1);
+`
+
+export const DetailsContent = styled.div`
+
+  background-color: rgba(226, 226, 226, 0.1);
+  box-shadow: 0px 0px 10px rgba(666, 666, 666, 0.4);
+  justify-content: center;
+  overflow-y: auto;
+  overflow-y: auto;
+  margin-top: 90px;
+  margin-bottom: 50px;
 `
