@@ -38,11 +38,10 @@ const Perfil: FC = () => {
         <Avatar />
         <InfoContainer>
           <InfoItem>
-            <b>Email: </b>
             {user[0].email}
           </InfoItem>
           <InfoItem>
-            <b>Nombre: </b>
+            <b>Welcome to your profile  </b>
             {user[0].displayName}
           </InfoItem>
         </InfoContainer>

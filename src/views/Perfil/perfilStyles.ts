@@ -10,11 +10,11 @@ export const PerfilContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 500px;
+  width: 600px;
   height: 500px;
   padding: 20px;
   border-radius: 28px;
-  background-color: rgba(245, 245, 245, 0.6);
+  background-color: rgba(22, 22, 22, 0.8);
   margin: auto;
   margin-top: 100px;
 `
@@ -30,7 +30,6 @@ export const Avatar = styled.div`
 `
 
 export const InfoContainer = styled.div`
-  margin-top: 30px;
   color: #ffffff;
   font-weight: bold;
   font-size: 31px;
@@ -39,12 +38,13 @@ export const InfoContainer = styled.div`
 `
 
 export const InfoItem = styled.p`
-  color: black;
+  color: #ffffff;
   font-weight: bold;
-  font-size: 32px;
-  font-family: 'Lato';
+  font-size: 28px;
+  font-family: 'Arial', sans-serif;
   margin-bottom: 30px;
-  text-shadow: 0px 0px 3px rgba(1, 888, 1);
+  text-shadow: 0px 0px 20px rgba(81, 185, 249, 1);
+  text-align: center;
   
 `
 
