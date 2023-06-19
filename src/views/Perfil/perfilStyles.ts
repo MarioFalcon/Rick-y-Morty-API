@@ -134,15 +134,13 @@ export const Title = styled.div`
     font-size: 18px;
   }
 `
+
+
 export const DashboardCards = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
 `
-
-
-
-
 
 export const Titlecharacters = styled.div`
   font-size: 4vw;
@@ -155,7 +153,6 @@ export const Titlecharacters = styled.div`
   text-shadow: 0px 0px 8px lime;
   font-family: 'get_schwifty';
 `;
-
 
 export const DetailsTitle = styled.h1`
   color: #ffffff;
