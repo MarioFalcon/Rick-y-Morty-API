@@ -20,7 +20,7 @@ const Episodes: FC = () => {
   return (
     <DashboardContainer>
       <Back onClick={handleGoToBack}>Back</Back>
-      <Header onLogout={function (): void {}} />
+      <Header />
       <VideoBackground videoSrc="/realism.mp4" />
       <DashboardContent>
         <DashboardCards>

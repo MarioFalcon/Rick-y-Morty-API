@@ -6,6 +6,7 @@ const Button: FC<Props> = ({
   children,
   onClick,
   className,
+  disabled = false,
   type = 'button',
   variant = 'primary',
 }) => {
@@ -15,6 +16,7 @@ const Button: FC<Props> = ({
       className={className}
       type={type}
       onClick={onClick}
+      disabled={disabled}
     >
       {children}
     </CustomButton>

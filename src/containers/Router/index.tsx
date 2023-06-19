@@ -24,7 +24,7 @@ const Router: FC<Props> = ({ onLogin, onSignup }) => {
     const token = getToken()
     const location = useLocation()
 
-    if (!token || token === null) {
+    if (!token) {
       return <Navigate to="/" replace state={{ from: location }} />
     }
     return children
@@ -85,15 +85,7 @@ const Router: FC<Props> = ({ onLogin, onSignup }) => {
           path="/characters"
           element={
             <ProtectedRoutes>
-              <>
-                <Characters
-                  name={''}
-                  image={''}
-                  onLogout={function (): void {
-                    throw new Error('Function not implemented.')
-                  }}
-                />
-              </>
+              <Characters />
             </ProtectedRoutes>
           }
         ></Route>

@@ -13,9 +13,9 @@ export type RYMResultCharacter = {
 }
 
 export type NewCard = {
-  id: string
   name: string
   species: string
+  status: string
 }
 
 export type RYMResultCharacterGeneral = {
@@ -40,3 +40,4 @@ export const RYMNormalizeCaracter = (input: RYMResultCharacter) => ({
 })
 
 export type Categorycharacters = ReturnType<typeof RYMNormalizeCaracter>
+export type Character = Categorycharacters

@@ -1,19 +1,18 @@
 import { useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { logout } from '../../services/firebase/auth'
-import { Props } from './headerTypes'
 import { resetUserInfo } from '../../services/storage/user'
+import { removeToken } from '../../services/storage/token'
 
-const useLogic = (onLogout: Props['onLogout']) => {
+const useLogic = () => {
   const navigate = useNavigate()
 
   const handleLogout = useCallback(async () => {
     await logout()
-    window.localStorage.removeItem('userToken')
+    removeToken()
     resetUserInfo()
-    onLogout()
     navigate('/login')
-  }, [navigate, onLogout])
+  }, [navigate])
 
   return {
     handleLogout,

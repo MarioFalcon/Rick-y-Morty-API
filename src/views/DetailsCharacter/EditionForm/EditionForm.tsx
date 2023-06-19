@@ -1,39 +1,37 @@
-import { FC, memo, useCallback } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { FC, memo, useMemo } from 'react'
+import { Formik } from 'formik'
 import {
-  Button,
   Container,
   Form,
   Input,
   InputController,
   Label,
-  ButtonContainer,
   Back,
   Error,
-} from './createFormStyles'
-import { Formik } from 'formik'
-import { InitialValues, ValidationSchema } from './constants'
+} from './styles'
+import { ValidationSchema } from './constants'
 import useLogic from './logic'
-import Footer from '../../components/Footer/footer'
-import VideoBackground from '../../components/VideoBackground/videoBackground'
+import type { Props } from './types'
 
-const CreateForm: FC = () => {
-  const { handleCreate } = useLogic()
-  const navigate = useNavigate()
+const EditionForm: FC<Props> = ({ onCancel, character }) => {
+  const { handleOnEdit } = useLogic()
 
-  const handleGoToBack = useCallback(() => {
-    navigate('/characters')
-  }, [navigate])
+  const InitialValues = useMemo(
+    () => ({
+      name: character.name || '',
+      species: character.species || '',
+      status: character.status || '',
+    }),
+    [character]
+  )
 
   return (
     <Container>
-      <Back onClick={handleGoToBack}>Back</Back>
-      <VideoBackground videoSrc="/realism.mp4" />
-      <ButtonContainer></ButtonContainer>
+      <Back onClick={onCancel}>Cancel</Back>
       <Formik
         initialValues={InitialValues}
         validationSchema={ValidationSchema}
-        onSubmit={handleCreate}
+        onSubmit={handleOnEdit}
       >
         {({ handleSubmit, handleChange, values, errors, isValid }) => (
           <Form onSubmit={handleSubmit}>
@@ -73,14 +71,13 @@ const CreateForm: FC = () => {
             </InputController>
 
             <button type="submit" disabled={!isValid}>
-              Create Characters
+              Edit {character.name}
             </button>
           </Form>
         )}
       </Formik>
-      <Footer />
     </Container>
   )
 }
 
-export default memo(CreateForm)
+export default memo(EditionForm)
