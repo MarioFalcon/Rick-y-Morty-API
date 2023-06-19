@@ -23,15 +23,12 @@ export const Container = styled.header`
 
   @media screen and (max-width: 768px) {
     justify-content: center;
-  
   }
 `
 
 export const ButtonContainer = styled.div`
   display: flex;
   margin-right: 40px;
-
- 
 `
 
 export const Button = styled.button`

@@ -1,6 +1,9 @@
 import { FC, memo, useState, useEffect, useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { getFavoritesEpisodes, toggleFavoritesEpisode } from '../../services/storage/storage'
+import {
+  getFavoritesEpisodes,
+  toggleFavoritesEpisode,
+} from '../../services/storage/storage'
 import { RYMEpisodes } from '../../services/rym/rym'
 import type { Props } from './types'
 import { CategoryEpisodes } from '../../models/episodes'
@@ -49,16 +52,11 @@ const ContainerList: FC<Props> = () => {
         isFav: false,
       }))
 
-
       const storedFavorites = getFavoritesEpisodes()
       const updatedEpisodes = episodesWithFavorites.map((episode) => ({
         ...episode,
         isFav: storedFavorites.some((fav) => fav.id === episode.id),
       }))
-
-
-
-
 
       setEpisodes(updatedEpisodes)
     }
