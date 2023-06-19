@@ -45,6 +45,19 @@ const Card: FC<Props> = ({onRemove}) => {
     []
   );
 
+  const handleCardRemove = useCallback(
+    (id: string) => {
+      setChapters((prevChapters) =>
+        prevChapters.filter((chapter) => chapter.id !== id)
+      )
+
+      if (onRemove) {
+        onRemove(id)
+      }
+    },
+    [onRemove]
+  )
+
   useEffect(() => {
     const fetchData = async () => {
       const chaptersData = await RYMChapters();
@@ -80,7 +93,7 @@ const Card: FC<Props> = ({onRemove}) => {
           </ImageContainer>
           <ContainerButton>
             <Button onClick={() => handleGoToDetails(chapter)}>Details</Button>
-            <Button onClick={() => onRemove?.(chapter)}>Remove</Button>
+            <Button onClick={() => handleCardRemove(chapter.id)}>Remove</Button>
             <Button onClick={() => handleToggleFavorites(chapter)}>
               {chapter.isFavorite ? 'Remove Favorite' : 'Add Favorite'}
             </Button>

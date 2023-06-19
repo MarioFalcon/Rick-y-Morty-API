@@ -26,7 +26,7 @@ const DetailsCharacter: FC = () => {
     const fetchData = async () => {
       const chaptersData = await RYMChapters()
       const selectedChapter = chaptersData.find(
-        (chapter) => typeof id === 'string' && chapter.id === parseInt(id)
+        (chapter) => typeof id === 'string' && parseInt(chapter.id, 10) === parseInt(id, 10)
       )
       setChapter(selectedChapter || null)
     }

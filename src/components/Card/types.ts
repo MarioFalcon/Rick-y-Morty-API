@@ -8,5 +8,5 @@ export type Props = {
   image?: string
   onLogout?: () => void
   isFavorite?: boolean
-  onRemove?: (chapter: Categorycharacters) => void
+  onRemove?: (id: string) => void
 }

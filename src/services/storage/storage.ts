@@ -15,10 +15,10 @@ export const setCachedChapters = (categories: Categorycharacters[]) => {
   window.localStorage.setItem(CHAPTERS_CATEGORY, JSON.stringify(categories))
 }
 
-export const removeCachedChapters = (chapter: Categorycharacters) => {
+export const removeCachedChapters = async (id: string) => {
   const currentCachedChapters = getCachedChapters()
   const existingIndex = currentCachedChapters.findIndex(
-    (item) => item.id === chapter.id
+    (item) => item.id === id
   )
   if (existingIndex !== -1) {
     currentCachedChapters.splice(existingIndex, 1)
