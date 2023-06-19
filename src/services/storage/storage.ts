@@ -1,4 +1,4 @@
-import { Categorycharacters } from '../../models/character'
+import { Categorycharacters, NewCard } from '../../models/character'
 import { CategoryEpisodes } from '../../models/episodes'
 
 const CHAPTERS_CATEGORY = 'chaptersLists'
@@ -9,6 +9,11 @@ const USER_FAV_EPISODES = 'userFavEpisodes'
 export const getCachedChapters = (): Categorycharacters[] => {
   const response = window.localStorage.getItem(CHAPTERS_CATEGORY)
   return response ? JSON.parse(response) : []
+}
+
+export const addNewCard = (data: NewCard) => {
+  const cardList = getCachedChapters()
+  setCachedChapters([...cardList, data as Categorycharacters])
 }
 
 export const setCachedChapters = (categories: Categorycharacters[]) => {
@@ -43,11 +48,12 @@ export const resetCache = () => {
   window.localStorage.removeItem(USER_FAV_EPISODES)
 }
 
-
 export const toggleFavoritesCharacter = (character: Categorycharacters) => {
   const favoritesCharacters = getFavoritesCharacters()
 
-  const index = favoritesCharacters.findIndex((item) => item.id === character.id)
+  const index = favoritesCharacters.findIndex(
+    (item) => item.id === character.id
+  )
 
   if (index !== -1) {
     favoritesCharacters.splice(index, 1)
@@ -63,14 +69,14 @@ export const getFavoritesCharacters = (): Categorycharacters[] => {
   return response ? JSON.parse(response) : []
 }
 
-export const setFavoritesCharacters = (favoritesCharacters: Categorycharacters[]) => {
-  window.localStorage.setItem(USER_FAV_CHARACTERS, JSON.stringify(favoritesCharacters))
+export const setFavoritesCharacters = (
+  favoritesCharacters: Categorycharacters[]
+) => {
+  window.localStorage.setItem(
+    USER_FAV_CHARACTERS,
+    JSON.stringify(favoritesCharacters)
+  )
 }
-
-
-
-
-
 
 export const toggleFavoritesEpisode = (episode: CategoryEpisodes) => {
   const favoritesEpisodes = getFavoritesEpisodes()
@@ -92,5 +98,8 @@ export const getFavoritesEpisodes = (): CategoryEpisodes[] => {
 }
 
 export const setFavoritesEpisodes = (favoritesEpisodes: CategoryEpisodes[]) => {
-  window.localStorage.setItem(USER_FAV_EPISODES, JSON.stringify(favoritesEpisodes))
+  window.localStorage.setItem(
+    USER_FAV_EPISODES,
+    JSON.stringify(favoritesEpisodes)
+  )
 }

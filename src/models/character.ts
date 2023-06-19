@@ -12,6 +12,12 @@ export type RYMResultCharacter = {
   results: RYMResultCharacter[]
 }
 
+export type NewCard = {
+  id: string
+  name: string
+  species: string
+}
+
 export type RYMResultCharacterGeneral = {
   info: {
     count: number

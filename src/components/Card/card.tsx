@@ -1,6 +1,9 @@
 import { FC, memo, useState, useCallback, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { getFavoritesCharacters, toggleFavoritesCharacter } from '../../services/storage/storage'
+import {
+  getFavoritesCharacters,
+  toggleFavoritesCharacter,
+} from '../../services/storage/storage'
 import { RYMChapters } from '../../services/rym/rym'
 import type { Props } from './types'
 import { Categorycharacters } from '../../models/character'
@@ -12,26 +15,25 @@ import {
   Image,
   Title,
   ContainerButton,
-} from './cardstyles';
+} from './cardstyles'
 
 interface ExtendedCategorycharacters extends Categorycharacters {
-  isFavorite: boolean;
+  isFavorite: boolean
 }
 
-const Card: FC<Props> = ({onRemove}) => {
-  const [chapters, setChapters] = useState<ExtendedCategorycharacters[]>([]);
-  const navigate = useNavigate();
+const Card: FC<Props> = ({ onRemove }) => {
+  const [chapters, setChapters] = useState<ExtendedCategorycharacters[]>([])
+  const navigate = useNavigate()
 
   const handleGoToDetails = useCallback(
     (chapter: ExtendedCategorycharacters) => {
-      navigate(`/detailscharacters/${chapter.id}`);
+      navigate(`/detailscharacters/${chapter.id}`)
     },
     [navigate]
-  );
+  )
 
   const handleToggleFavorites = useCallback(
     (chapter: ExtendedCategorycharacters) => {
-
       toggleFavoritesCharacter(chapter)
 
       setChapters((prevChapters) =>
@@ -40,10 +42,10 @@ const Card: FC<Props> = ({onRemove}) => {
             ? { ...prevChapter, isFavorite: !prevChapter.isFavorite }
             : prevChapter
         )
-      );
+      )
     },
     []
-  );
+  )
 
   const handleCardRemove = useCallback(
     (id: string) => {
@@ -60,13 +62,11 @@ const Card: FC<Props> = ({onRemove}) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const chaptersData = await RYMChapters();
+      const chaptersData = await RYMChapters()
       const chaptersWithFavorites = chaptersData.map((chapter) => ({
         ...chapter,
         isFavorite: false,
-
       }))
-
 
       const storedFavorites = getFavoritesCharacters()
       const updatedChapters = chaptersWithFavorites.map((chapter) => ({
@@ -74,14 +74,11 @@ const Card: FC<Props> = ({onRemove}) => {
         isFavorite: storedFavorites.some((fav) => fav.id === chapter.id),
       }))
 
-
-
       setChapters(updatedChapters)
     }
 
-
-    fetchData();
-  }, []);
+    fetchData()
+  }, [])
 
   return (
     <Container>
@@ -101,7 +98,7 @@ const Card: FC<Props> = ({onRemove}) => {
         </Content>
       ))}
     </Container>
-  );
-};
+  )
+}
 
-export default memo(Card);
+export default memo(Card)

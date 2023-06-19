@@ -6,6 +6,5 @@ export type Props = {
   isProfile?: boolean
   name?: string
   onLogout?: () => void
-  isFav?: boolean;
-  
+  isFav?: boolean
 }

@@ -15,6 +15,7 @@ import Episodes from '../../views/Episodes/episodes'
 import Detailscharacters from '../../views/DetailsCharacter/detailscharacter'
 import Detailsepisodes from '../../views/DetailsEpisodes/detailsepisodes'
 import Detailsperfil from '../../views/Perfil/perfil'
+import Create from '../../views/Create/createForm'
 import { getToken } from '../../services/storage/token'
 import { Props } from './types'
 
@@ -85,9 +86,13 @@ const Router: FC<Props> = ({ onLogin, onSignup }) => {
           element={
             <ProtectedRoutes>
               <>
-                <Characters name={''} image={''} onLogout={function (): void {
-                  throw new Error('Function not implemented.')
-                } }/>
+                <Characters
+                  name={''}
+                  image={''}
+                  onLogout={function (): void {
+                    throw new Error('Function not implemented.')
+                  }}
+                />
               </>
             </ProtectedRoutes>
           }
@@ -128,11 +133,21 @@ const Router: FC<Props> = ({ onLogin, onSignup }) => {
             </ProtectedRoutes>
           }
         ></Route>
+
         <Route
           path="/profile"
           element={
             <ProtectedRoutes>
               <Detailsperfil />
+            </ProtectedRoutes>
+          }
+        ></Route>
+
+        <Route
+          path="/create"
+          element={
+            <ProtectedRoutes>
+              <Create />
             </ProtectedRoutes>
           }
         ></Route>
