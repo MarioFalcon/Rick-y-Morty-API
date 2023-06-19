@@ -2,7 +2,7 @@ export type RYMResultCharacter = {
   created: string
   episode: Array<{}>
   gender: string
-  id: number
+  id: string
   image: string
   name: string
   species: string

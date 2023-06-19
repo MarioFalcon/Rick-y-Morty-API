@@ -1,4 +1,4 @@
-import { FC, memo, useCallback, useState } from 'react';
+import { FC, memo, useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from '../../components/Header/header';
 import Footer from '../../components/Footer/footer';
@@ -8,19 +8,34 @@ import { Container, DashboardCards, Back } from './charactersStyles';
 import type { Props } from './types';
 import { removeCachedChapters } from '../../services/storage/storage';
 import { Categorycharacters } from '../../models/character';
+import { RYMChapters } from '../../services/rym/rym';
 
 const Characters: FC<Props> = () => {
   const navigate = useNavigate();
   const [chapter, setChapters] = useState<Categorycharacters[]>([]);
+  const [isloading, setIsLoading] = useState<boolean>(false)
+  const [characterList, setCharacterList] = useState<Categorycharacters[]>([])
+
+  const getCharactersList = useCallback(async () => {
+    const characters = await RYMChapters()
+    setCharacterList(characters)
+  }, [])
 
   const handleGoToBack = useCallback(() => {
     navigate('/selection');
   }, [navigate]);
 
-  const handleRemove = useCallback((chapter: Categorycharacters) => {
-    const newList = removeCachedChapters(chapter)
-    setChapters(newList)
+  const handleRemove = useCallback((id: string) => {
+    removeCachedChapters(id)
+    setIsLoading(false)
+    setChapters((prevChapters) =>
+      prevChapters.filter((chapter) => chapter.id !== id)
+    )
   }, [])
+
+  useEffect(() => {
+    getCharactersList()
+  }, [getCharactersList])
 
   return (
     <Container>
@@ -30,10 +45,7 @@ const Characters: FC<Props> = () => {
           throw new Error('Function not implemented.');
         } } />
         <VideoBackground videoSrc="/realism.mp4" />
-        {/* {chapter.map((chapter) => (
-                <Card key={chapter.id} chapter={chapter} onRemove={handleRemove} />
-              ))}         */}
-        <Card key={chapter} chapter={chapter} onRemove={handleRemove} />
+        <Card onRemove={handleRemove} />
         <Footer/>
       </DashboardCards>
     </Container>
