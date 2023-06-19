@@ -2,15 +2,14 @@ import { FC, memo, useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Container, ButtonContainer, Gif, Button } from './headerStyles'
 import useLogic from './headerLogic'
-import { Props } from './headerTypes'
 import { resetCache } from '../../services/storage/storage'
 
-const Header: FC<Props> = ({ onLogout }) => {
+const Header: FC = () => {
   const navigate = useNavigate()
-  const { handleLogout } = useLogic(onLogout)
+  const { handleLogout } = useLogic()
 
   const handleReset = useCallback(() => {
-    resetCache?.()
+    resetCache()
     navigate('/')
   }, [navigate])
 

@@ -6,7 +6,6 @@ import VideoBackground from '../../components/VideoBackground/videoBackground'
 import { DashboardContainer, LeftButton, RightButton, ButtonContainer} from './selectionStyles'
 
 const Selection: FC = () => {
-  const [isLoading, setIsLoading] = useState(true)
   const navigate = useNavigate()
 
   const handleGoToCharacters = useCallback(() => {
@@ -19,7 +18,7 @@ const Selection: FC = () => {
 
   return (
     <DashboardContainer>
-      <Header onLogout={function (): void {}} />
+      <Header />
       <VideoBackground videoSrc="/duo.mp4" />
       <ButtonContainer>
       <LeftButton onClick={handleGoToCharacters}>CHARACTERS</LeftButton>

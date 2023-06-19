@@ -60,24 +60,19 @@ const Card: FC<Props> = ({ onRemove }) => {
     [onRemove]
   )
 
+  const handleGetCharacters = useCallback(async () => {
+    const chaptersData = await RYMChapters()
+    const storedFavorites = getFavoritesCharacters()
+    const updatedChapters = chaptersData.map((chapter) => ({
+      ...chapter,
+      isFavorite: storedFavorites.some((fav) => fav.id === chapter.id),
+    }))
+
+    setChapters(updatedChapters)
+  }, [])
+
   useEffect(() => {
-    const fetchData = async () => {
-      const chaptersData = await RYMChapters()
-      const chaptersWithFavorites = chaptersData.map((chapter) => ({
-        ...chapter,
-        isFavorite: false,
-      }))
-
-      const storedFavorites = getFavoritesCharacters()
-      const updatedChapters = chaptersWithFavorites.map((chapter) => ({
-        ...chapter,
-        isFavorite: storedFavorites.some((fav) => fav.id === chapter.id),
-      }))
-
-      setChapters(updatedChapters)
-    }
-
-    fetchData()
+    handleGetCharacters()
   }, [])
 
   return (

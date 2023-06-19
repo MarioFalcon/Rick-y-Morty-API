@@ -5,7 +5,7 @@ import { addNewCard } from '../../services/storage/storage'
 const useLogic = () => {
   const navigate = useNavigate()
   const handleCreate = useCallback(
-    (values: { id: string; name: string; species: string }) => {
+    (values: { name: string; species: string; status: string }) => {
       addNewCard(values)
       navigate('/characters')
     },

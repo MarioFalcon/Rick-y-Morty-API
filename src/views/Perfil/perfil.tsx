@@ -20,7 +20,10 @@ import { getUserInfo } from '../../services/storage/user'
 import Header from '../../components/Header/header'
 import Footer from '../../components/Footer/footer'
 import VideoBackground from '../../components/VideoBackground/videoBackground'
-import { getFavoritesCharacters, getFavoritesEpisodes } from '../../services/storage/storage'
+import {
+  getFavoritesCharacters,
+  getFavoritesEpisodes,
+} from '../../services/storage/storage'
 
 const Perfil: FC = () => {
   const user = getUserInfo()
@@ -36,7 +39,7 @@ const Perfil: FC = () => {
   return (
     <>
       <Back onClick={handleGoToBack}>Back</Back>
-      <Header onLogout={function (): void {}} />
+      <Header />
       <VideoBackground videoSrc="/realism.mp4" />
       <PerfilContainer>
         <Avatar />
@@ -48,9 +51,6 @@ const Perfil: FC = () => {
           </InfoItem>
         </InfoContainer>
       </PerfilContainer>
-
-
-
 
       <Titlecharacters>your favorite characters</Titlecharacters>
       <Container>
@@ -64,20 +64,15 @@ const Perfil: FC = () => {
         ))}
       </Container>
 
-
-
-
       <Titlecharacters>your favorite episodes</Titlecharacters>
       {cardFavoritesEpisodes.map((episode) => (
-      <DetailsContent>
-      
-            <DetailsTitle>{episode.name}</DetailsTitle>
-            <DetailsSpecies>{episode.id}</DetailsSpecies>
-            <DetailsSpecies>{episode.air_date}</DetailsSpecies>
-            <DetailsSpecies>{episode.episode}</DetailsSpecies>
-         
-      </DetailsContent>
-         ))}
+        <DetailsContent>
+          <DetailsTitle>{episode.name}</DetailsTitle>
+          <DetailsSpecies>{episode.id}</DetailsSpecies>
+          <DetailsSpecies>{episode.air_date}</DetailsSpecies>
+          <DetailsSpecies>{episode.episode}</DetailsSpecies>
+        </DetailsContent>
+      ))}
       <Footer />
     </>
   )

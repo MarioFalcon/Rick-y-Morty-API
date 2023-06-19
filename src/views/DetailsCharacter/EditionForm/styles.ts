@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import DefaultButton from '../../components/Button/button'
 
 export const Container = styled.div``
 
@@ -120,26 +119,5 @@ export const Input = styled.input<{ $hasError?: boolean }>`
   @media screen and (max-width: 768px) {
     height: 30px;
     font-size: 14px;
-  }
-`
-
-export const Button = styled(DefaultButton)`
-  margin-top: 50px;
-  width: 100%;
-  background-color: rgba(0, 185, 0, 0.2);
-  color: #ffffff;
-  padding: 15px 0;
-  font-size: 18px;
-  font-weight: 600;
-  border-radius: 50px;
-  cursor: pointer;
-
-  &:hover {
-    color: lime;
-  }
-
-  @media screen and (max-width: 768px) {
-    font-size: 15px;
-    margin-top: 5px;
   }
 `

@@ -10,23 +10,31 @@ import {
   Buttoneditar,
   Image,
   ImageContainer,
+  Bold,
 } from './detailscharacterStyles'
 import Footer from '../../components/Footer/footer'
 import { RYMChapters } from '../../services/rym/rym'
 import VideoBackground from '../../components/VideoBackground/videoBackground'
 import { Categorycharacters } from '../../models/character'
+import EditionForm from './EditionForm/EditionForm'
 
 const DetailsCharacter: FC = () => {
   const { id } = useParams()
   const navigate = useNavigate()
-
   const [chapter, setChapter] = useState<Categorycharacters | null>(null)
+  const [isEdit, setIsEdit] = useState(false)
+
+  const handleToggleEdition = useCallback(() => {
+    setIsEdit((prev) => !prev)
+  }, [])
 
   useEffect(() => {
     const fetchData = async () => {
       const chaptersData = await RYMChapters()
       const selectedChapter = chaptersData.find(
-        (chapter) => typeof id === 'string' && parseInt(chapter.id, 10) === parseInt(id, 10)
+        (chapter) =>
+          typeof id === 'string' &&
+          parseInt(chapter.id, 10) === parseInt(id, 10)
       )
       setChapter(selectedChapter || null)
     }
@@ -42,23 +50,25 @@ const DetailsCharacter: FC = () => {
     <DetailsContainer>
       <VideoBackground videoSrc="/realism.mp4" />
       <DetailsContent>
-        {chapter && (
+        {chapter && !isEdit && (
           <>
             <DetailsTitle>{chapter.name}</DetailsTitle>
             <ImageContainer>
               <Image src={chapter.image} />
             </ImageContainer>
             <DetailsSpecies>
-              <b>
-                This character is a {chapter.species}, is in a{' '}
-                <b>{chapter.status}</b> state.
-              </b>
+              This character is a {chapter.species}, is in a{' '}
+              <Bold>{chapter.status}</Bold> state.
             </DetailsSpecies>
           </>
         )}
+
+        {chapter && isEdit && (
+          <EditionForm onCancel={handleToggleEdition} character={chapter} />
+        )}
         <ButtonContainer>
           <ButtonBack onClick={handleGoBack}>Back</ButtonBack>
-          <Buttoneditar>Edit</Buttoneditar>
+          <Buttoneditar onClick={handleToggleEdition}>Edit</Buttoneditar>
         </ButtonContainer>
       </DetailsContent>
       <Footer />

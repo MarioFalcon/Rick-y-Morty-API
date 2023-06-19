@@ -6,4 +6,5 @@ export type Props = {
   onClick?: () => void
   type?: 'button' | 'submit'
   variant?: 'primary' | 'secondary'
+  disabled?: boolean
 }

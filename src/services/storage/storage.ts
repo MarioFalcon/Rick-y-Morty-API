@@ -1,5 +1,6 @@
 import { Categorycharacters, NewCard } from '../../models/character'
 import { CategoryEpisodes } from '../../models/episodes'
+import { v4 as uuidv4 } from 'uuid'
 
 const CHAPTERS_CATEGORY = 'chaptersLists'
 const EPISODES_CATEGORY = 'episodesLists'
@@ -13,14 +14,15 @@ export const getCachedChapters = (): Categorycharacters[] => {
 
 export const addNewCard = (data: NewCard) => {
   const cardList = getCachedChapters()
-  setCachedChapters([...cardList, data as Categorycharacters])
+  const newCharacter = { id: uuidv4(), ...data }
+  setCachedChapters([...cardList, newCharacter as Categorycharacters])
 }
 
 export const setCachedChapters = (categories: Categorycharacters[]) => {
   window.localStorage.setItem(CHAPTERS_CATEGORY, JSON.stringify(categories))
 }
 
-export const removeCachedChapters = async (id: string) => {
+export const removeCachedChapters = (id: string) => {
   const currentCachedChapters = getCachedChapters()
   const existingIndex = currentCachedChapters.findIndex(
     (item) => item.id === id

@@ -17,6 +17,8 @@ export const DetailsSpecies = styled.p`
   text-shadow: 0px 0px 0px rgba(81, 185, 249, 1);
 `
 
+export const Bold = styled.b``
+
 export const ImageContainer = styled.div`
   display: flex;
   justify-content: center;
@@ -34,7 +36,7 @@ export const Image = styled.img`
 
 export const DetailsContainer = styled.div`
   display: flex;
- 
+
   align-items: center;
   justify-content: center;
   min-height: 100vh;
@@ -43,7 +45,7 @@ export const DetailsContainer = styled.div`
     min-height: auto;
     padding: 20px;
   }
-`;
+`
 
 export const DetailsContent = styled.div`
   width: 150vh;
