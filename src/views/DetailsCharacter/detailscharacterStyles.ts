@@ -34,11 +34,16 @@ export const Image = styled.img`
 
 export const DetailsContainer = styled.div`
   display: flex;
-  flex-direction: column;
+ 
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-`
+
+  @media screen and (max-width: 768px) {
+    min-height: auto;
+    padding: 20px;
+  }
+`;
 
 export const DetailsContent = styled.div`
   width: 150vh;

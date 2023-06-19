@@ -1,8 +1,8 @@
 import styled, { keyframes } from 'styled-components'
 
 export const DashboardContainer = styled.div`
-  display: flex;
-  flex-direction: column;
+  
+ 
   align-items: center;
   width: 100%;
 `
@@ -30,8 +30,8 @@ const blinkAnimation = keyframes`
 `
 
 export const RightButton = styled.button`
-  left: 290px;
-  margin-top: 140px;
+  /* right: 190px;*/
+  margin-top: 190px; 
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -62,14 +62,12 @@ export const RightButton = styled.button`
     opacity: 1;
   }
 
-  @media screen and (max-width: 768px) {
-    text-align: center;
-  }
 `
 
 export const LeftButton = styled.button`
-  right: 220px;
-  margin-top: 240px;
+  /* right: 190px;
+  margin-top: 240px; */
+  margin-bottom: 190px;
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -102,14 +100,20 @@ export const LeftButton = styled.button`
 
   @media screen and (max-width: 768px) {
     text-align: center;
+    margin-bottom: -266px;
   }
 `
 export const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 260px;
+  gap: 120px; /* Separación horizontal entre los botones */
+  
   @media screen and (max-width: 768px) {
     flex-direction: column;
-    display: flex;
+   
     justify-content: center;
-    margin-top: 20px;
-    align-items: center;
+   
   }
 `

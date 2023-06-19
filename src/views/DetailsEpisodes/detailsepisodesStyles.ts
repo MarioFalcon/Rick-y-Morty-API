@@ -18,19 +18,14 @@ export const DetailsSpecies = styled.p`
 `
 
 export const ImageContainer = styled.div`
-  /* display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  height: 100%;
-  border-radius: 80px;  */
+
 `
 
 export const Image = styled.img``
 
 export const DetailsContainer = styled.div`
   display: flex;
-  flex-direction: column;
+
   align-items: center;
   justify-content: center;
   min-height: 100vh;
@@ -50,7 +45,7 @@ export const ButtonContainer = styled.div`
   align-items: center;
   margin-top: 60px;
   margin-bottom: 70px;
-  @media (max-width: 768px) {
+  @media (max-width: 1000px) {
     flex-wrap: wrap;
   }
 `

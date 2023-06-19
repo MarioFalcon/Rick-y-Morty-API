@@ -2,12 +2,14 @@ import styled from 'styled-components'
 
 export const DashboardContainer = styled.div`
   display: flex;
-  flex-direction: column;
   align-items: center;
   width: 100%;
+  @media screen and (max-width: 768px) {
+    
+  }
 `
 export const DashboardContent = styled.div`
-  width: 80%;
+  width: 33vh;
   margin-top: 20px;
   margin-left: auto;
   margin-right: auto;

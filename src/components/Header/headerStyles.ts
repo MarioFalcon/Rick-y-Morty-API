@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Gif = styled.img`
-  width: 60px;
+  width: 4vw;
   z-index: 5;
   position: absolute;
   left: 40px;
@@ -23,7 +23,7 @@ export const Container = styled.header`
 
   @media screen and (max-width: 768px) {
     justify-content: center;
-    padding: 0 10px;
+  
   }
 `
 
@@ -31,9 +31,7 @@ export const ButtonContainer = styled.div`
   display: flex;
   margin-right: 40px;
 
-  @media screen and (max-width: 768px) {
-    margin-right: 0;
-  }
+ 
 `
 
 export const Button = styled.button`

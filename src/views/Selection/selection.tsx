@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import Header from '../../components/Header/header'
 import Footer from '../../components/Footer/footer'
 import VideoBackground from '../../components/VideoBackground/videoBackground'
-import { DashboardContainer, LeftButton, RightButton } from './selectionStyles'
+import { DashboardContainer, LeftButton, RightButton, ButtonContainer} from './selectionStyles'
 
 const Selection: FC = () => {
   const [isLoading, setIsLoading] = useState(true)
@@ -21,9 +21,10 @@ const Selection: FC = () => {
     <DashboardContainer>
       <Header onLogout={function (): void {}} />
       <VideoBackground videoSrc="/duo.mp4" />
+      <ButtonContainer>
       <LeftButton onClick={handleGoToCharacters}>CHARACTERS</LeftButton>
       <RightButton onClick={handleGoToEpisodes}>EPISODES</RightButton>
-
+</ButtonContainer>
       <Footer />
     </DashboardContainer>
   )
